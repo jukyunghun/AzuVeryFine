@@ -26,20 +26,20 @@ public class ValveData {
 	
 	// 측정 순번 
 	@Id // primary 키 지정
-	@Column(name="flowing_idx")
-    private long flowing_idx;
+	@Column(name="flowingIdx")
+    private long flowingIdx;
 
 
     // 측정 값 
-	@Column(name="flowing_value", nullable = false)
-    private BigDecimal flowing_value;
+	@Column(name="flowingValue", nullable = false)
+    private BigDecimal flowingValue;
 
     // 측정 날짜 
-	@Column(name="flowing_at",length=40, nullable = false)
-    private String flowing_at;
+	@Column(name="flowingAt",length=40, nullable = false)
+    private String flowingAt;
 
     // 밸브 식별자 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "valve_idx", referencedColumnName = "valve_idx", nullable = false)
+    @JoinColumn(name = "valveIdx", referencedColumnName = "valveIdx", nullable = false)
     private Valve valve;
 }

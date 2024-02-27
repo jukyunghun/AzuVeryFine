@@ -13,5 +13,7 @@ public class MemberService {
 	@Autowired
 	MemberRepository repository;
 	
-	
+	public Member login(Member member) {
+		return repository.findByMbEmailAndMbPw(member.getMbEmail(),member.getMbPw());
+	}
 }

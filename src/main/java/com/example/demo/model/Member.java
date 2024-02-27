@@ -11,46 +11,46 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity //JPA 관리
-@Table(name="tb_member") //생성되는 테이블 이름
+@Table(name="tbMember") //생성되는 테이블 이름
 @Data
 @NoArgsConstructor
 public class Member {
 
 	// 회원 이메일
 	@Id // primary 키 지정
-	@Column(name="mb_email", length=50)
-    private String mb_email;
+	@Column(name="mbEmail", length=50)
+    private String mbEmail;
 
     // 회원 비밀번호 
-	@Column(name="mb_pw", length=30)
-    private String mb_pw;
+	@Column(name="mbPw", length=30)
+    private String mbPw;
 
     // 회원 이름 
-	@Column(name="mb_name", length=40)
-    private String mb_name;
+	@Column(name="mbName", length=40)
+    private String mbName;
 
     // 회원 전화 
-	@Column(name="mb_phone", length=20)
-    private String mb_phone;
+	@Column(name="mbPhone", length=20)
+    private String mbPhone;
 
     // 회원 소속회사 
-	@Column(name="company_name", length=40)
-    private String company_name;
+	@Column(name="companyName", length=40)
+    private String companyName;
 
     // 회사 주소 
-	@Column(name="company_addr", length=1000)
-    private String company_addr;
+	@Column(name="companyAddr", length=1000)
+    private String companyAddr;
 
     // 회사 전화 
-	@Column(name="company_tel", length=20)
-    private String company_tel;
+	@Column(name="companyTel", length=20)
+    private String companyTel;
 
     // 회원 가입일자 
 	// insert시 값 디폴트값 들어가게 값 넘기면 안됨!
-	@Column(name="joined_at", length=50)
-    private String joined_at;
+	@Column(name="joinedAt", length=50)
+    private String joinedAt;
 
     // 회원 구분 
-	@Column(name="mb_role", length=20)
-    private String mb_role;
+	@Column(name="mbRole", length=20)
+    private String mbRole;
 }

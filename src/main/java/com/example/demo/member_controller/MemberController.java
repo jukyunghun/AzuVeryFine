@@ -24,11 +24,17 @@ public class MemberController {
 	public String login(@RequestParam("email")String email, @RequestParam("pw")String pw) throws JsonMappingException, JsonProcessingException {
 		
 		Member member = new Member();
-		member.setMb_email(email);
-		member.setMb_pw(pw);
+		member.setMbEmail(email);
+		member.setMbPw(pw);
 		
+		Member result = service.login(member);
 		
-		
-		return "";
+		if(result == null) {
+			return "fail"; //모바일 앱에서 응답받는 값
+		}else {
+			//jwt 토큰 받아오는 메서드 호출!
+			
+			return "";
+		}
 	}
 }

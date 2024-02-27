@@ -9,5 +9,5 @@ import com.example.demo.model.Member;
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Integer>{
 
-	
+	Member findByMbEmailAndMbPw(@Param("mbEmail") String mbEmail, @Param("mbPw") String mbPw);
 }

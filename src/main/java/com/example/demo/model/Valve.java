@@ -23,37 +23,37 @@ import lombok.Setter;
 public class Valve {
 	
 	@Id // primary 키 지정
-	@Column(name="valve_idx")
-    private long valve_idx;
+	@Column(name="valveIdx")
+    private long valveIdx;
 
     // 회원 아이디(email) 
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "valve_owner",referencedColumnName = "mb_email", nullable = false)
+    @JoinColumn(name = "valveOwner",referencedColumnName = "mbEmail", nullable = false)
     private Member member;
 
 	// 밸브 UID
-    @Column(name="valve_uid", length=30, nullable = false)
-    private String valve_uid;
+    @Column(name="valveUid", length=30, nullable = false)
+    private String valveUid;
 
     // 밸브 명 
-    @Column(name="valve_name", length=40, nullable = false)
-    private String valve_name;
+    @Column(name="valveName", length=40, nullable = false)
+    private String valveName;
 
     // 밸브 구분 
-    @Column(name="valve_type", length=20, nullable = false)
-    private String valve_type;
+    @Column(name="valveType", length=20, nullable = false)
+    private String valveType;
 
     // 밸브 설치일자 
-    @Column(name="installed_at", length=40, nullable = false)
-    private String installed_at;
+    @Column(name="installedAt", length=40, nullable = false)
+    private String installedAt;
 
     // 밸브 설치위치 
-    @Column(name="valve_loc", length=40, nullable = false)
-    private String valve_loc;
+    @Column(name="valveLoc", length=40, nullable = false)
+    private String valveLoc;
 
     // 밸브 상태
-    @Column(name="valve_status", length=40, nullable = false)
-    private String valve_status;
+    @Column(name="valveStatus", length=40, nullable = false)
+    private String valveStatus;
 
     
 }

@@ -28,20 +28,20 @@ public class SensorData {
 	// 측정 순번 
 	// insert시 값 디폴트값 들어가게 값 넘기면 안됨!
 	@Id // primary 키 지정
-	@Column(name="sensing_idx")
-    private long sensing_idx;
+	@Column(name="sensingIdx")
+    private long sensingIdx;
 
     // 측정 값 
-	@Column(name="sensing_value", nullable = false)
-    private BigDecimal sensing_value;
+	@Column(name="sensingValue", nullable = false)
+    private BigDecimal sensingValue;
 
     // 측정 날짜 
 	// insert시 값 디폴트값 들어가게 값 넘기면 안됨!
-	@Column(name="sensing_at", length=40, nullable = false)
-    private Date sensing_at;
+	@Column(name="sensingAt", length=40, nullable = false)
+    private Date sensingAt;
 
     // 센서 식별자 
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sensor_idx", referencedColumnName = "sensor_idx", nullable = false)
+    @JoinColumn(name = "sensorIdx", referencedColumnName = "sensorIdx", nullable = false)
     private Sensor sensor;
 }
