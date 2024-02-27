@@ -29,7 +29,13 @@
 				<li><a class="dropdown-item" href="#!">Settings</a></li>
 				<li><a class="dropdown-item" href="#!">Activity Log</a></li>
 				<li><hr class="dropdown-divider" /></li>
-				<li><a class="dropdown-item" href="login">로그아웃</a></li>
+				<li><a class="dropdown-item" href="login" onclick="deleteTokenFromCookie();">로그아웃</a></li>
 			</ul></li>
 	</ul>
 </nav>
+<script>
+
+	function deleteTokenFromCookie() {
+		document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+	}
+</script>
