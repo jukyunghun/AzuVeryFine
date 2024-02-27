@@ -37,7 +37,7 @@
 										</div>
 										<div
 											class="d-flex align-items-center justify-content-between mt-4 mb-0">
-											<a class="small" href="login.jsp">로그인</a>
+											<a class="small" href="login">로그인</a>
 											<button class="btn btn-primary" type="submit">비밀번호
 												수정</button>
 										</div>
@@ -45,7 +45,7 @@
 								</div>
 								<div class="card-footer text-center py-3">
 									<div class="small">
-										<a href="register.jsp">회원가입</a>
+										<a href="register">회원가입</a>
 									</div>
 								</div>
 							</div>

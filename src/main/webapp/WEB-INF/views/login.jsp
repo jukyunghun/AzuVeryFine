@@ -27,7 +27,7 @@
 									<h3 class="text-center font-weight-light my-4">로그인</h3>
 								</div>
 								<div class="card-body">
-									<form action="login.jsp" method="post">
+									<form action="login" method="post">
 										<div class="form-floating mb-3">
 											<input class="form-control" id="inputEmail" name="email"
 												type="email" placeholder="name@example.com" /> <label
@@ -45,14 +45,14 @@
 										</div>
 										<div
 											class="d-flex align-items-center justify-content-between mt-4 mb-0">
-											<a class="small" href="password.jsp">비밀번호 찾기</a>
+											<a class="small" href="password">비밀번호 찾기</a>
 											<button class="btn btn-primary" type="submit">로그인</button>
 										</div>
 									</form>
 								</div>
 								<div class="card-footer text-center py-3">
 									<div class="small">
-										<a href="register.jsp">회원가입</a>
+										<a href="register">회원가입</a>
 									</div>
 								</div>
 							</div>

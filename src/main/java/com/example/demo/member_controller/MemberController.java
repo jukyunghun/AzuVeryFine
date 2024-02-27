@@ -1,10 +1,17 @@
 package com.example.demo.member_controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.jwt.JwtTokenProvider;
 import com.example.demo.model.Member;
@@ -42,4 +49,11 @@ public class MemberController {
 			return "index";
 		}
 	}
+
+	//회원가입
+//	@PostMapping("/")
+//	public String join(@RequestParam("mbEmail") String mbEmail, @RequestParam("mbPw") String mbPw,
+//			@RequestParam("mbName") String mbName, @RequestParam("mbPhone") String mbPhone,
+//			@RequestParam("companyName") String companyName,@RequestParam("companyAddr") String companyAddr,@RequestParam("companyTel") String companyTel, HttpServletRequest request) {
+//	}
 }
