@@ -7,9 +7,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Register - SB Admin</title>
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/final/assets/css/styles.css" rel="stylesheet">
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
 	crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body class="bg-white">
 	<div id="layoutAuthentication">
@@ -88,6 +89,11 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
+		axios.interceptors.request.use(config => {
+	  const token = '${token}'; // 토큰 값 설정
+	  config.headers.Authorization = `Bearer ${token}`;
+	  return config;
+	});
 	<script src="js/scripts.js"></script>
 </body>
 </html>
