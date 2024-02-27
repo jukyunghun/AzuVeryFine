@@ -59,11 +59,12 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
+		<script
 		axios.interceptors.request.use(config => {
 	  const token = '${token}'; // 토큰 값 설정
 	  config.headers.Authorization = `Bearer ${token}`;
 	  return config;
-	});
+	});</script>
 	<script src="js/scripts.js"></script>
 </body>
 </html>

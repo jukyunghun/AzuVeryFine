@@ -4,11 +4,11 @@
 	<div class="sb-sidenav-menu">
 		<div class="nav">
 			<div class="sb-sidenav-menu-heading">Core</div>
-			<a class="nav-link" href="index.jsp">
+			<a class="nav-link" href="index">
 				<div class="sb-nav-link-icon">
 					<i class="fas fa-tachometer-alt"></i>
 				</div> 오탁수 처리량
-			</a> <a class="nav-link" href="connect.jsp">
+			</a> <a class="nav-link" href="connect">
 				<div class="sb-nav-link-icon">
 					<i class="fa fa-rss"></i>
 				</div> 연동 디바이스 관리
@@ -27,12 +27,12 @@
 			<div class="collapse" id="collapseControl"
 				aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 				<nav class="sb-sidenav-menu-nested nav">
-					<a class="nav-link" href="power.jsp">기기 전원 관리</a> <a
-						class="nav-link" href="precise.jsp">약제 투입</a>
+					<a class="nav-link" href="power">기기 전원 관리</a> <a
+						class="nav-link" href="precise">약제 투입</a>
 				</nav>
 			</div>
 			<div class="sb-sidenav-menu-heading">Profile</div>
-			<a class="nav-link" href="profile.jsp">
+			<a class="nav-link" href="profile">
 				<div class="sb-nav-link-icon">
 					<i class="fa fa-user-circle"></i>
 				</div> 회원 정보 수정
