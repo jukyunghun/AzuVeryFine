@@ -7,11 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-commit test!
-commit test2 !
-commit test3 !
-commit test4 !
-commit test5 2/27 10:03
-
+<form action="/login" method="post">
+	<li><input name="email" type="text" placeholder="Email을 입력하세요"></li>
+	<li><input name="pw" type="password" placeholder="PW를 입력하세요"></li>
+	<li><input type="submit" value="LogIn" class="button fit"></li>
+</form>
 </body>
 </html>
