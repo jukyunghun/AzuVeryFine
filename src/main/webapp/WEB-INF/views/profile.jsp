@@ -72,7 +72,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/final/assets/js/scripts.js"></script>
 	<script>
         const form = document.getElementById('updateForm');
         const passwordInput = document.getElementById('password');
@@ -85,12 +85,40 @@
                 passwordError.style.display = 'block';
             }
         });
+        function getCookie(name) {
+            const cookieStr = document.cookie;
+            const cookies = cookieStr.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookiePair = cookies[i].split('=');
+                const cookieName = cookiePair[0].trim();
+                if (cookieName === name) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+
+        const token = getCookie('token');
+        axios.interceptors.request.use(async config => {
+            const token = await getCookie('token'); // 쿠키에서 토큰을 가져옴
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`; // 토큰이 있으면 헤더에 추가
+            } else {
+                // 토큰이 없으면 요청 중단하고 로그인 페이지로 이동
+                window.location.href = '/final/loginpage';
+                throw new Error('인증 토큰이 없습니다.'); // 요청 중단
+            }
+            return config;
+        }, error => {
+            return Promise.reject(error);
+        });
+
+        document.addEventListener("DOMContentLoaded", function(){
+        	console.log("ㅅㅂ")
+        	console.log(token)
+        });
         
-        axios.interceptors.request.use(config => {
-      	  const token = '${token}'; // 토큰 값 설정
-      	  config.headers.Authorization = `Bearer ${token}`;
-      	  return config;
-      	});
+        
     </script>
 </body>
 </html>

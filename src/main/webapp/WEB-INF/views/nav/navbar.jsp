@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 	<!-- Navbar Brand-->
 	<a class="navbar-brand ps-3" href="index">Start Bootstrap</a>
@@ -29,7 +30,7 @@
 				<li><a class="dropdown-item" href="#!">Settings</a></li>
 				<li><a class="dropdown-item" href="#!">Activity Log</a></li>
 				<li><hr class="dropdown-divider" /></li>
-				<li><a class="dropdown-item" href="login" onclick="deleteTokenFromCookie();">로그아웃</a></li>
+				<li><a class="dropdown-item" href="loginpage" onclick="deleteTokenFromCookie();">로그아웃</a></li>
 			</ul></li>
 	</ul>
 </nav>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 	<div class="sb-sidenav-menu">
 		<div class="nav">

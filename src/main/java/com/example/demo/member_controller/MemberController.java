@@ -34,7 +34,7 @@ public class MemberController {
 	private JwtTokenProvider jwtTokenProvider;
 	
 	@PostMapping("/login")
-	public String login(@RequestParam("email")String email, @RequestParam("pw")String pw, Model model, HttpServletResponse response) throws JsonMappingException, JsonProcessingException {
+	public String login(@RequestParam("email")String email, @RequestParam("password")String pw, Model model, HttpServletResponse response) throws JsonMappingException, JsonProcessingException {
 		
 		Member member = new Member();
 		member.setMbEmail(email);
@@ -43,7 +43,7 @@ public class MemberController {
 		Member result = service.login(member);
 		
 		if(result == null) {
-			return "login";
+			return "redirect:login";
 		}else {
 			// jwt 토큰 받아오는 메서드 호출!
 			String token = jwtTokenProvider.createToken(member.getMbEmail());
@@ -54,7 +54,7 @@ public class MemberController {
 		    response.addCookie(cookie);
 		    // 모델에 담아서 index페이지로 토큰값 넘김!
 			model.addAttribute("token", token);
-			return "index";
+			return "redirect:index";
 		}
 	}
 
