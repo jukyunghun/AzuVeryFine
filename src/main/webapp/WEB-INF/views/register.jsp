@@ -24,7 +24,7 @@
 									<h3 class="text-center font-weight-light my-4">회원가입</h3>
 								</div>
 								<div class="card-body">
-									<form action="login.jsp" method="post">
+									<form action="login" method="post">
 										<div class="row mb-3">
 											<div class="col-md-6">
 												<div class="form-floating mb-3 mb-md-0">

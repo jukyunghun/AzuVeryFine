@@ -57,5 +57,40 @@ public class MemberController {
 			return "index";
 		}
 	}
+	
+	//회원가입
+	@PostMapping("/register")
+	public String register(@RequestParam("mbEmail") String mbEmail, 
+            @RequestParam("mbPw") String mbPw,
+            @RequestParam("mbName") String mbName,
+            @RequestParam("mbPhone") String mbPhone,
+            @RequestParam("companyName") String companyName,
+            @RequestParam("companyAddr") String companyAddr,
+            @RequestParam("companyTel") String companyTel,
+            @RequestParam("confirmPassword") String confirmPassword,
+	                       HttpServletResponse response) {
+	    
 
+	    if (!mbPw.equals(confirmPassword)) {
+	        return "redirect:/register"; 
+	    }
+	    
+	    Member member = new Member();
+	    member.setMbEmail(mbEmail);
+	    member.setMbPw(mbPw);
+	    member.setMbName(mbName);
+	    member.setMbPhone(mbPhone);
+	    member.setCompanyName(companyName);
+	    member.setCompanyAddr(companyAddr);
+	    member.setCompanyTel(companyTel);
+	    
+	    Member result = service.register(member);
+	    
+	    if (result != null) {
+	        return "redirect:/login"; 
+	    } else {
+
+	        return "redirect:/register"; 
+	    }
+	}
 }

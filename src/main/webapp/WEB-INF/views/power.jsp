@@ -87,27 +87,31 @@
             }
         }
 
-        // 배관 벨브 제어를 위한 JavaScript 함수
         function toggleValve() {
             var valveSwitch = document.getElementById("valveSwitch");
-            if (valveSwitch.checked) {
-                if (confirm("배관 밸브를 여시겠습니까?")) {
-                    // 배관 밸브를 열 때 수행할 작업 추가
-                    console.log("배관 밸브가 열렸습니다.");
-                } else {
-                    // 사용자가 취소한 경우 다시 체크 상태로 변경
-                    valveSwitch.checked = false;
-                }
-            } else {
-                if (confirm("배관 밸브를 닫으시겠습니까?")) {
-                    // 배관 벨브를 닫을 때 수행할 작업 추가
-                    console.log("배관 밸브가 닫혔습니다.");
-                } else {
-                    // 사용자가 취소한 경우 다시 체크 상태로 변경
-                    valveSwitch.checked = true;
-                }
-            }
+            var valveStatus = valveSwitch.checked ? "1" : "0"; // 밸브 스위치 상태에 따라 1 또는 0 설정
+
+            var requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'valveStatus=' + valveStatus // 밸브 상태를 서버로 전송
+            };
+
+            fetch('./power', requestOptions)
+                .then(response => {
+                    if (response.ok) {
+                        console.log("밸브 상태 변경에 성공했습니다.");
+                    } else {
+                        console.error("밸브 상태 변경에 실패했습니다.");
+                    }
+                })
+                .catch(error => {
+                    console.error("밸브 상태 변경 중 오류 발생:", error);
+                });
         }
+
         axios.interceptors.request.use(config => {
       	  const token = '${token}'; // 토큰 값 설정
       	  config.headers.Authorization = `Bearer ${token}`;
