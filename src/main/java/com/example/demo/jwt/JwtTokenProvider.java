@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Component
 public class JwtTokenProvider {
@@ -46,6 +47,7 @@ public class JwtTokenProvider {
     public boolean validateToken(String token) {
         try {
             // 토큰을 검증하고 예외가 발생하지 않으면 true 반환
+        	System.out.println(token);
             JWT.require(Algorithm.HMAC256(secret)).build().verify(token);
             return true;
         } catch (JWTVerificationException e) {
@@ -56,7 +58,9 @@ public class JwtTokenProvider {
 
     // HttpServletRequest에서 토큰을 추출하는 메서드 수정
     public String getTokenFromRequest(HttpServletRequest request) {
+    	
         String bearerToken = request.getHeader("Authorization");
+        System.out.println(bearerToken);
         if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
             return bearerToken.substring(7);
         }

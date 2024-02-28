@@ -91,40 +91,9 @@
 		crossorigin="anonymous"></script>
 
 <script>
-function getCookie(name) {
-    const cookieStr = document.cookie;
-    const cookies = cookieStr.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        const cookiePair = cookies[i].split('=');
-        const cookieName = cookiePair[0].trim();
-        if (cookieName === name) {
-            return decodeURIComponent(cookiePair[1]);
-        }
-    }
-    return null;
-}
 
-    window.onload = function() {
-        // 토큰 값
-        const token = getCookie('token'); // 쿠키에서 토큰을 가져옴
-
-        // Axios를 사용하여 GET 요청 보내기
-        axios.get('/your-endpoint', {
-            headers: {
-                'Authorization': `Bearer ${token}` // 헤더에 토큰 추가
-            }
-        })
-        .then(function(response) {
-            // 요청 성공 시 처리
-            console.log(response.data);
-        })
-        .catch(function(error) {
-            // 요청 실패 시 처리
-            console.error('Error:', error);
-        });
-    };
 </script>
 		
-	<script src="js/scripts.js"></script>
+	<script src="/final/assets/js/scripts.js"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.jwt.JwtTokenProvider;
@@ -32,6 +33,15 @@ public class MemberController {
 	
 	@Autowired
 	private JwtTokenProvider jwtTokenProvider;
+	
+	
+	@RequestMapping("/tokenCheck")
+	public @ResponseBody void tokenCheck(@RequestParam("token") String token) {
+		System.out.println(token);
+		System.out.println("들어옴");
+	}
+	
+	
 	
 	@PostMapping("/login")
 	public String login(@RequestParam("email")String email, @RequestParam("password")String pw, Model model, HttpServletResponse response) throws JsonMappingException, JsonProcessingException {

@@ -32,6 +32,6 @@ public class WebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor)
                 .addPathPatterns("/**") // 모든 요청에 대해 인터셉트
-                .excludePathPatterns("/loginpage", "/register"); // 인터셉트에서 제외할 경로 설정
+                .excludePathPatterns("/login", "/register", "/password"); // 인터셉트에서 제외할 경로 설정
     }
 }

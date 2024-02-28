@@ -148,25 +148,34 @@ function getCookie(name) {
     return null;
 }
 
-const token = getCookie('token');
-axios.interceptors.request.use(async config => {
-    const token = await getCookie('token'); // 쿠키에서 토큰을 가져옴
+window.onload = function() {
+    const token = getCookie('token');
+    // 토큰을 가져왔다면 이후의 작업을 수행
     if (token) {
-        config.headers.Authorization = `Bearer ${token}`; // 토큰이 있으면 헤더에 추가
-    } else {
-        // 토큰이 없으면 요청 중단하고 로그인 페이지로 이동
-        window.location.href = '/final/loginpage';
-        throw new Error('인증 토큰이 없습니다.'); // 요청 중단
+        // Axios Interceptors 설정
+        axios.interceptors.request.use(function(config) {
+            config.headers.Authorization = `Bearer ${token}`; // 헤더에 토큰 추가
+            console.log('헤더에 토큰이 추가되었습니다:', config.headers.Authorization); // 헤더에 토큰이 추가되었는지 콘솔에 출력
+            return config;
+        }, function(error) {
+            return Promise.reject(error);
+        });
     }
-    return config;
-}, error => {
-    return Promise.reject(error);
-});
-
-document.addEventListener("DOMContentLoaded", function(){
-	console.log("ㅅㅂ")
-	console.log(token)
-});
+    
+    $.ajax({
+    	url : "tokenCheck",
+    	data : {"token" : token},
+    	type : "post",
+    	success : function(){
+    		console.log("success");
+    	}, error : function(){
+    		console.log("error");
+    	}
+    });
+    
+    
+    
+};
 
 	
     </script>
