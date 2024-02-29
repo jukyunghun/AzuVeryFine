@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity //JPA 관리
-@Table(name="tb_valve") //생성되는 테이블 이름
+@Table(name="tbValve") //생성되는 테이블 이름
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

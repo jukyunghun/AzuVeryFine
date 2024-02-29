@@ -16,4 +16,9 @@ public class MemberService {
 	public Member login(Member member) {
 		return repository.findByMbEmailAndMbPw(member.getMbEmail(),member.getMbPw());
 	}
+	
+	
+	 public Member register(Member member) {
+	        return repository.save(member);
+	    }
 }
