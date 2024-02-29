@@ -18,7 +18,14 @@ public class MemberService {
 	}
 	
 	
-	 public Member register(Member member) {
-	        return repository.save(member);
-	    }
+	public Member register(Member member) {
+        // 이미 존재하는 이메일인지 확인
+        Member exist = repository.findByMbEmail(member.getMbEmail());
+        if (exist != null) {
+        	  throw new RuntimeException("이미 존재하는 이메일입니다."); // 예외 발생
+        }
+        
+        // 존재하지 않는 이메일이면 회원가입 진행
+        return repository.save(member);
+    }
 }

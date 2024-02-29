@@ -24,11 +24,17 @@
 									<h3 class="text-center font-weight-light my-4">회원가입</h3>
 								</div>
 								<div class="card-body">
+								<% String error = request.getParameter("error"); %>
+								<% if (error != null) { %>
+								<div class="alert alert-danger" role="alert">
+								<%= error %>
+								</div>
+								<% } %>
 									<form action="1register" method="post">
 										<div class="form-floating mb-3">
 											<input class="form-control" id="inputEmail" name="email"
 												type="email" placeholder="name@example.com" required /> <label
-												for="inputEmail">회원 이메일</label>
+												for="inputEmail">회원 이메일</label>	
 										</div>
 										<div class="form-floating mb-3">
 											<input class="form-control" id="inputPassword"
@@ -136,6 +142,7 @@
 			}
 		}
 
+		
 		// 입력값 변경 시 checkInputs 함수 호출
 		document.querySelectorAll('input').forEach(function(input) {
 			input.addEventListener('input', checkInputs);

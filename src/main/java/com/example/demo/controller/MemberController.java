@@ -87,14 +87,12 @@ public class MemberController {
 	    member.setCompanyTel(companyTel);
 	    member.setJoinedAt(LocalDateTime.now());
 	    
-	    Member result = service.register(member);
-	    
-	    System.out.println(result.getMbEmail());
-	    
-	    if (result != null) {
+	    try {
+	        Member result = service.register(member);
+	        System.out.println(result.getMbEmail());
 	        return "redirect:/loginpage"; 
-	    } else {
-	        return "redirect:/register"; 
+	    } catch (RuntimeException e) {
+	        return "redirect:/register?error="+e.getMessage(); 
 	    }
 	}
 	

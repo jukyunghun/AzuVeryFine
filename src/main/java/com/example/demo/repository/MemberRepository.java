@@ -12,5 +12,5 @@ public interface MemberRepository extends JpaRepository<Member, Integer>{
 
 	Member findByMbEmailAndMbPw(@Param("mbEmail") String mbEmail, @Param("mbPw") String mbPw);
 
-	
+	Member findByMbEmail(@Param ("mbEmail") String mbEmail);
 }
