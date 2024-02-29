@@ -29,6 +29,8 @@ public class ValveService {
 		return null; // 밸브가 없거나 상태가 변경되지 않았을 경우 null 반환
 	}
 
-	
+	public Valve getValveStatus(int idx) {
+		return repository.findByValveIdx(idx);
+	}
 	
 }

@@ -17,10 +17,10 @@ public class JwtInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-        // CSS, JS, 이미지 파일은 인터셉트하지 않음
+    	String queryString = request.getQueryString();
+        // 쿼리스트링, CSS, JS, 이미지 파일은 인터셉트하지 않음
         String path = request.getRequestURI().substring(request.getContextPath().length());
-        if (path.startsWith("/assets/") || path.startsWith("/webjars/")) {
-            System.out.println("정적 파일 요청");
+        if (path.startsWith("/assets/") || path.startsWith("/webjars/") || queryString != null) {
             return true;
         }
 

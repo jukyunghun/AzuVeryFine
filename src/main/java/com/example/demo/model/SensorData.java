@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -54,7 +55,7 @@ public class SensorData {
     // 측정 날짜 
 	// insert시 값 디폴트값 들어가게 값 넘기면 안됨!
 	@Column(name="sensingAt", length=40, nullable = false)
-    private Date sensingAt;
+    private LocalDateTime sensingAt;
 
     // 센서 식별자 
 	@ManyToOne(fetch = FetchType.LAZY)

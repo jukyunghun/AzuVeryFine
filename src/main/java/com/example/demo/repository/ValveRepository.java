@@ -9,4 +9,6 @@ import com.example.demo.model.Valve;
 @Repository
 public interface ValveRepository extends JpaRepository<Valve, Integer> {
 	Valve findByvalveStatus(@Param("valveStatus") String valveStatus);
+	
+	Valve findByValveIdx(int idx); 
 }
