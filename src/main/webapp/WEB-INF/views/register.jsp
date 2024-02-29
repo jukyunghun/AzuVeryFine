@@ -123,10 +123,6 @@
 			var confirmPassword = document
 					.getElementById('inputPasswordConfirm').value; // 비밀번호 확인 입력값
 			var registerBtn = document.getElementById('registerBtn'); // 회원가입 버튼
-
-</script>
-
-<script>
 			inputs.forEach(function(input) {
 				if (!input.value) { // 입력값이 공란일 경우
 					allFilled = false;
