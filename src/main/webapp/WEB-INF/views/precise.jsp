@@ -103,6 +103,6 @@
 	  config.headers.Authorization = `Bearer ${token}`;
 	  return config;
 	});
-	<script src="js/scripts.js"></script>
+	<script src="/final/assets/js/scripts.js"></script>
 </body>
 </html>

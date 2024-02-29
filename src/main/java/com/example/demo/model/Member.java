@@ -1,5 +1,9 @@
 package com.example.demo.model;
 
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.CreatedDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -45,12 +49,15 @@ public class Member {
 	@Column(name="companyTel", length=20)
     private String companyTel;
 
-    // 회원 가입일자 
-	// insert시 값 디폴트값 들어가게 값 넘기면 안됨!
-	@Column(name="joinedAt", length=50)
-    private String joinedAt;
+//    // 회원 가입일자 
+//	// insert시 값 디폴트값 들어가게 값 넘기면 안됨!
+//	@Column(name="joinedAt", length=50)
+//    private String joinedAt;
 
     // 회원 구분 
 	@Column(name="mbRole", length=20)
     private String mbRole;
+	
+	 @Column(name = "joinedAt")
+	    private LocalDateTime joinedAt;
 }

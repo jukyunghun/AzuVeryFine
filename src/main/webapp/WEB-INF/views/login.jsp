@@ -71,7 +71,8 @@
 	  const token = '${token}'; // 토큰 값 설정
 	  config.headers.Authorization = `Bearer ${token}`;
 	  return config;
-	});</script>
-	<script src="js/scripts.js"></script>
+	});
+		</script>
+	<script src="/final/assets/js/scripts.js"></script>
 </body>
 </html>

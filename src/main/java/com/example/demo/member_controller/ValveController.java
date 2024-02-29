@@ -21,7 +21,8 @@ public class ValveController {
 	@PostMapping("/power")
 	public void valveCon(@RequestParam("valveStatus") String valveStatus, HttpServletResponse response) throws JsonMappingException, JsonProcessingException {
 	    if ("1".equals(valveStatus) || "0".equals(valveStatus)) {
-	    	Valve valve = service.toggleValveStatus(); // 밸브 상태 토글
+	    	System.out.println("컨트롤러");
+	    	Valve valve = service.toggleValve(); // 밸브 상태 토글
 	    	if (valve != null) {
 	    		System.out.println("성공");
 	    		response.setStatus(HttpServletResponse.SC_OK); // 성공적으로 처리됨

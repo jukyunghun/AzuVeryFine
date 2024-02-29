@@ -75,7 +75,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/final/assets/js/scripts.js"></script>
 	<script>
         function confirmPower() {
             if (confirm("전원을 변경하시겠습니까?")) {

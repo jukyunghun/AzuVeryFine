@@ -12,7 +12,8 @@ public class ValveService {
 	@Autowired
 	ValveRepository repository;
 	
-	public Valve toggleValveStatus() {
+	public Valve toggleValve() {
+		System.out.println("서비스");
 		Valve valve = repository.findByvalveStatus("1"); // 예시로 밸브 상태가 "1"인 것을 가져오도록 설정
 		if (valve != null) {
 			if ("1".equals(valve.getValveStatus())) {
