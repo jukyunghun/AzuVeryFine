@@ -59,6 +59,6 @@ public class Member {
 	@Column(name="mbRole", length=20)
     private String mbRole;
 	
-	 @Column(name = "joinedAt")
-	 private LocalDateTime joinedAt;
+	@Column(name = "joinedAt")
+	private LocalDateTime joinedAt;
 }
