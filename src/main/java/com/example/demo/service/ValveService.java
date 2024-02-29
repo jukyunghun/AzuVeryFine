@@ -15,6 +15,9 @@ public class ValveService {
 	public Valve toggleValve() {
 		System.out.println("서비스");
 		Valve valve = repository.findByvalveStatus("1"); // 예시로 밸브 상태가 "1"인 것을 가져오도록 설정
+		if (valve == null) {
+			valve = repository.findByvalveStatus("0"); // "1"인 상태의 밸브가 없다면 "0"인 상태의 밸브를 가져옴
+		}
 		if (valve != null) {
 			if ("1".equals(valve.getValveStatus())) {
 				valve.setValveStatus("0"); // 밸브 상태를 토글하여 업데이트
