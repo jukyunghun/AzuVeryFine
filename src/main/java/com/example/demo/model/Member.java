@@ -18,6 +18,7 @@ import lombok.Setter;
 @Table(name="tbMember") //생성되는 테이블 이름
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Member {
 
 	// 회원 이메일

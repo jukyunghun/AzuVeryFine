@@ -1,4 +1,4 @@
-package com.example.demo.member_controller;
+package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -70,6 +70,7 @@ public class MemberController {
             @RequestParam("confirmPassword") String confirmPassword,
             HttpServletResponse response) {
 
+		System.out.println("들어옴");
 	    if (!mbPw.equals(confirmPassword)) {
 	        return "redirect:/register"; 
 	    }
@@ -84,7 +85,9 @@ public class MemberController {
 	    member.setCompanyTel(companyTel);
 	    
 	    Member result = service.register(member);
-
+	    
+	    System.out.println(result.getMbEmail());
+	    
 	    if (result != null) {
 	        return "redirect:/loginpage"; 
 	    } else {
