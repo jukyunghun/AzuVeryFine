@@ -109,15 +109,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-		
-		
-		<script> 
-	  axios.interceptors.request.use(config => {
-	  const token = '${token}'; // 토큰 값 설정
-	  config.headers.Authorization = `Bearer ${token}`;
-	  return config;
-	});
-	  </script>
+
 	<script src="/final/assets/js/scripts.js"></script>
 	<script>
 		// 입력값이 변경될 때마다 호출되는 함수
@@ -195,5 +187,8 @@
 					showRegistrationConfirmation();
 				});
 	</script>
+		
+	<script src="js/scripts.js"></script>
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine.git
 </body>
 </html>

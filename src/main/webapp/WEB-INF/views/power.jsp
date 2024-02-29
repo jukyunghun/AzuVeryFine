@@ -112,11 +112,6 @@
                 });
         }
 
-        axios.interceptors.request.use(config => {
-      	  const token = '${token}'; // 토큰 값 설정
-      	  config.headers.Authorization = `Bearer ${token}`;
-      	  return config;
-      	});
     </script>
 </body>
 </html>
