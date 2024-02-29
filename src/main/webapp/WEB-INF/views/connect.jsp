@@ -135,48 +135,6 @@ function updateConnectionStatus(button, status) {
     row.cells[2].innerText = status;
 }
 
-function getCookie(name) {
-    const cookieStr = document.cookie;
-    const cookies = cookieStr.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        const cookiePair = cookies[i].split('=');
-        const cookieName = cookiePair[0].trim();
-        if (cookieName === name) {
-            return decodeURIComponent(cookiePair[1]);
-        }
-    }
-    return null;
-}
-
-window.onload = function() {
-    const token = getCookie('token');
-    // 토큰을 가져왔다면 이후의 작업을 수행
-    if (token) {
-        // Axios Interceptors 설정
-        axios.interceptors.request.use(function(config) {
-            config.headers.Authorization = `Bearer ${token}`; // 헤더에 토큰 추가
-            console.log('헤더에 토큰이 추가되었습니다:', config.headers.Authorization); // 헤더에 토큰이 추가되었는지 콘솔에 출력
-            return config;
-        }, function(error) {
-            return Promise.reject(error);
-        });
-    }
-    
-    $.ajax({
-    	url : "tokenCheck",
-    	data : {"token" : token},
-    	type : "post",
-    	success : function(){
-    		console.log("success");
-    	}, error : function(){
-    		console.log("error");
-    	}
-    });
-    
-    
-    
-};
-
 	
     </script>
 </body>
