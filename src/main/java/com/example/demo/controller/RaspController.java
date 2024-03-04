@@ -1,10 +1,9 @@
 package com.example.demo.controller;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,9 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Sensor;
 import com.example.demo.model.SensorData;
 import com.example.demo.model.Valve;
-import com.example.demo.service.MemberService;
 import com.example.demo.service.SensorDataService;
 import com.example.demo.service.ValveService;
+
+import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
 public class RaspController {
@@ -29,7 +29,6 @@ public class RaspController {
 	Sensor sensor = new Sensor();
 	SensorData sensorData;
 	int count=0;
-	
 	@PostMapping("/RaspToSpring")
 	public String getSensorValue(@RequestParam("phValue") BigDecimal phValue, @RequestParam("turbidValue") BigDecimal turbidValue,
 							  @RequestParam("flowValue") BigDecimal flowValue, @RequestParam("identifier") long identifier) {
@@ -41,10 +40,10 @@ public class RaspController {
 			count=0;
 		}
 		
-		if(phValue.intValue()>=14 || phValue == null) {
+		if(phValue == null || phValue.intValue()>=14) {
 			//산도값 이상 사용자 알림
 		}
-		if(turbidValue.intValue()>250 || turbidValue == null) {
+		if(turbidValue == null || turbidValue.intValue()>250) {
 			//탁도값 이상 사용자 알림
 		}
 		if(flowValue == null) {

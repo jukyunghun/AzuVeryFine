@@ -6,6 +6,8 @@
     // 
 // Scripts
 // 
+response.setCharacterEncoding("UTF-8");
+response.setContentType("text/html; charset=UTF-8");
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -23,7 +25,7 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
-    // 추가된 부분: 센서 데이터 확인 함수
+    // sensor
     function checkSensorData() {
         $.get("/getGraphData", function(data) {
             // 센서 데이터를 확인하고 조건에 따라 알림 표시
