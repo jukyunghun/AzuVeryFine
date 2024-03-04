@@ -10,7 +10,9 @@ import com.example.demo.service.ValveService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class ValveController {
@@ -19,10 +21,12 @@ public class ValveController {
 	ValveService service;
 	
 	@PostMapping("/power")
-	public void valveCon(@RequestParam("valveStatus") String valveStatus, HttpServletResponse response) throws JsonMappingException, JsonProcessingException {
+	public void valveCon(@RequestParam("valveStatus") String valveStatus, HttpServletResponse response, HttpServletRequest request) throws JsonMappingException, JsonProcessingException {
 	    if ("1".equals(valveStatus) || "0".equals(valveStatus)) {
 	    	System.out.println("컨트롤러");
-	    	Valve valve = service.toggleValve(); // 밸브 상태 토글
+	    	HttpSession session = request.getSession();
+	    	String email = (String)session.getAttribute("email");
+	    	Integer valve = service.toggleValve(email); // 밸브 상태 토글
 	    	if (valve != null) {
 	    		System.out.println("성공");
 	    		response.setStatus(HttpServletResponse.SC_OK); // 성공적으로 처리됨

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.example.demo.model.Member;
 import com.example.demo.repository.MemberRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class MemberService {
 
@@ -28,4 +30,9 @@ public class MemberService {
         // 존재하지 않는 이메일이면 회원가입 진행
         return repository.save(member);
     }
+	
+	@Transactional
+	public Integer updateProfile(Member member, String oldEmail) {
+		return repository.updateMemberByEmail(member.getMbEmail(),member.getMbPw(), member.getMbName(), oldEmail);
+	}
 }

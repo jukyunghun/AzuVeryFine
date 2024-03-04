@@ -21,6 +21,15 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Member {
 
+	
+	
+	public Member(String mbEmail, String mbPw, String mbName) {
+		super();
+		this.mbEmail = mbEmail;
+		this.mbPw = mbPw;
+		this.mbName = mbName;
+	}
+
 	// 회원 이메일
 	@Id // primary 키 지정
 	@Column(name="mbEmail", length=50)

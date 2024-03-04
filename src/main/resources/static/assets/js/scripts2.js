@@ -1,29 +1,60 @@
-/*!
-    * Start Bootstrap - SB Admin v7.0.7 (https://startbootstrap.com/template/sb-admin)
-    * Copyright 2013-2023 Start Bootstrap
-    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
-    */
-    // 
-// Scripts
-// 
+// 상태를 저장할 변수들
+let lastPhAlertTime = 0;
+let lastTurbidAlertTime = 0;
+let lastInFlowAlertTime = 0;
+let lastOutFlowAlertTime = 0;
 
 window.addEventListener('DOMContentLoaded', event => {
 
     // 추가된 부분: 센서 데이터 확인 함수
     function checkSensorData() {
         $.get("/final/getGraphData", function(data) {
-        
-        	console.log(data);
-        	
-            // 센서 데이터를 확인하고 조건에 따라 알림 표시
-            if (data.phValue >= 14 || data.phValue === null) {
-                alert("산도값이 이상합니다.");
+            console.log(data);
+
+            // ph 센서 데이터 확인
+            if (data.phValue === null) {
+                if (Date.now() - lastPhAlertTime > 5 * 60 * 1000) {
+                    alert("ph 센서값을 못받아옴.");
+                    lastPhAlertTime = Date.now(); // 알림 시간 갱신
+                }
+            } else {
+                if(data.phValue >= 14) {
+                    if (Date.now() - lastPhAlertTime > 5 * 60 * 1000) {
+                        alert("ph 센서값이 높습니다");
+                        lastPhAlertTime = Date.now(); // 알림 시간 갱신
+                    }
+                }
             }
-            if (data.turbidValue > 250 || data.turbidValue === null) {
-                alert("탁도값이 이상합니다.");
+
+            // 탁도 센서 데이터 확인
+            if (data.turbidValue === null) {
+                if (Date.now() - lastTurbidAlertTime > 5 * 60 * 1000) {
+                    alert("탁도값을 못받아옴");
+                    lastTurbidAlertTime = Date.now(); // 알림 시간 갱신
+                }
+            } else {
+                if(data.turbidValue > 250) {
+                    if (Date.now() - lastTurbidAlertTime > 5 * 60 * 1000) {
+                        alert("탁도값이 높습니다");
+                        lastTurbidAlertTime = Date.now(); // 알림 시간 갱신
+                    }
+                }
             }
-            if (data.flowValue === null) {
-                alert("유량값이 이상합니다.");
+
+            // 유입량 센서 데이터 확인
+            if (data.inFlowValue === null) {
+                if (Date.now() - lastInFlowAlertTime > 5 * 60 * 1000) {
+                    alert("유입량값을 못받아옴");
+                    lastInFlowAlertTime = Date.now(); // 알림 시간 갱신
+                }
+            }
+
+            // 유출량 센서 데이터 확인
+            if (data.outFlowValue === null) {
+                if (Date.now() - lastOutFlowAlertTime > 5 * 60 * 1000) {
+                    alert("유출량값을 못받아옴");
+                    lastOutFlowAlertTime = Date.now(); // 알림 시간 갱신
+                }
             }
         });
     }
