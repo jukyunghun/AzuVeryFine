@@ -14,6 +14,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
 	crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<%@ include file="nav/navbar.jsp"%>
@@ -35,7 +36,7 @@
 									<i class="fas fa-user-edit me-1"></i> 회원 정보 수정 양식
 								</div>
 								<div class="card-body">
-									<form id="updateForm" action="updateProfile.jsp" method="post">
+									<form id="updateForm" action="/final/updateProfile" method="post">
 										<div class="mb-3">
 											<label for="fullName" class="form-label">전체 이름</label> <input
 												type="text" class="form-control" id="fullName"
@@ -74,20 +75,36 @@
 		crossorigin="anonymous"></script>
 	<script src="/final/assets/js/scripts.js"></script>
 	<script>
-        const form = document.getElementById('updateForm');
-        const passwordInput = document.getElementById('password');
-        const confirmPasswordInput = document.getElementById('confirmPassword');
-        const passwordError = document.getElementById('passwordError');
+    document.getElementById('updateForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // 폼의 기본 동작을 막음
 
-        form.addEventListener('submit', function(event) {
-            if (passwordInput.value !== confirmPasswordInput.value) {
-                event.preventDefault();
-                passwordError.style.display = 'block';
-            }
-        });
-        
-        
-        
+        const passwordInput = document.getElementById('password').value;
+        const confirmPasswordInput = document.getElementById('confirmPassword').value;
+
+        // 비밀번호 확인 검사
+        if (passwordInput !== confirmPasswordInput) {
+            document.getElementById('passwordError').style.display = 'block';
+            return; // 비밀번호가 일치하지 않으면 폼 전송을 중지
+        }
+
+        // axios를 사용하여 비동기 POST 요청 보냄
+        axios.post('/final/updateProfile', new FormData(this))
+            .then(function(response) {
+                if (response.data === 'success') {
+                    // 성공 시 로그인 페이지로 이동
+                    alert('회원가입에 성공했습니다. 로그인페이지로 이동합니다');
+                    window.location.href = '/final/loginpage';
+                } else {
+                    // 실패 시 알림 메시지 표시
+                    alert('중복된 이메일입니다.');
+                }
+            })
+            .catch(function(error) {
+                console.error('오류 발생:', error);
+                // 오류 발생 시 알림 메시지 표시
+                alert('중복된 이메일입니다.');
+            });
+    });
         
     </script>
 </body>

@@ -106,6 +106,21 @@ public class MemberController {
 	           return "redirect:/register?error="+e.getMessage(); 
 	       }
 	   }
+	   
+	   @PostMapping("/updateProfile")
+	   @ResponseBody
+	   public String updateProfile(@RequestParam("fullName") String mbName, @RequestParam("email") String mbEmail, @RequestParam("password") String mbPw, HttpServletRequest request) {
+		   HttpSession session = request.getSession();
+		   String oldEmail = (String) session.getAttribute("email");
+		   
+		   Member member = new Member(mbEmail,mbPw,mbName);
+		   Integer result = service.updateProfile(member,oldEmail);
+		   if(result == null) {
+			   return "fail";
+		   }else {
+			   return "success";
+		   }
+	   }
 	
 
 }
