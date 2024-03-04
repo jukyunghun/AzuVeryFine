@@ -24,10 +24,11 @@ public class DailyGraphController {
 	SensorDataService sensorDataService;
 	
 	@GetMapping("/getDailyGraphData")
-	public List<SensorData> getDailyGraphData(HttpServletRequest request){
+	public List<Object[]> getDailyGraphData(HttpServletRequest request){
 		System.out.println("컨트롤러 들어옴");
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
+		System.out.println(email);
 		return sensorDataService.getSensorDataForLastSixDays(email);
 	}
 }

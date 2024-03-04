@@ -72,37 +72,40 @@ public class MemberController {
 	
 
 	//회원가입
-	@PostMapping("/1register")
-	@ResponseBody
-	public String registerMember(@RequestParam("email") String mbEmail, 
-            @RequestParam("password") String mbPw,
-            @RequestParam("firstName") String mbName,
-            @RequestParam("phone") String mbPhone,
-            @RequestParam("company") String companyName,
-            @RequestParam("companyAddress") String companyAddr,
-            @RequestParam("companyPhone") String companyTel,
-            @RequestParam("confirmPassword") String confirmPassword,
-            HttpServletResponse response) {
+	   @PostMapping("/1register")
+	   public String registerMember(@RequestParam("email") String mbEmail, 
+	            @RequestParam("password") String mbPw,
+	            @RequestParam("firstName") String mbName,
+	            @RequestParam("phone") String mbPhone,
+	            @RequestParam("company") String companyName,
+	            @RequestParam("companyAddress") String companyAddr,
+	            @RequestParam("companyPhone") String companyTel,
+	            @RequestParam("confirmPassword") String confirmPassword,
+	            HttpServletResponse response) {
 
+	      System.out.println("들어옴");
+	       if (!mbPw.equals(confirmPassword)) {
+	           return "redirect:/register"; 
+	       }
 
-	    Member member = new Member();
-	    member.setMbEmail(mbEmail);
-	    member.setMbPw(mbPw);
-	    member.setMbName(mbName);
-	    member.setMbPhone(mbPhone);
-	    member.setCompanyName(companyName);
-	    member.setCompanyAddr(companyAddr);
-	    member.setCompanyTel(companyTel);
-	    member.setJoinedAt(LocalDateTime.now());
-	    
-	    try {
-	        Member result = service.register(member);
-	        System.out.println(result.getMbEmail());
-	        return "success"; 
-	    } catch (RuntimeException e) {
-	        return "fail"; 
-	    }
-	}
+	       Member member = new Member();
+	       member.setMbEmail(mbEmail);
+	       member.setMbPw(mbPw);
+	       member.setMbName(mbName);
+	       member.setMbPhone(mbPhone);
+	       member.setCompanyName(companyName);
+	       member.setCompanyAddr(companyAddr);
+	       member.setCompanyTel(companyTel);
+	       member.setJoinedAt(LocalDateTime.now());
+	       
+	       try {
+	           Member result = service.register(member);
+	           System.out.println(result.getMbEmail());
+	           return "redirect:/loginpage"; 
+	       } catch (RuntimeException e) {
+	           return "redirect:/register?error="+e.getMessage(); 
+	       }
+	   }
 	
 
 }
