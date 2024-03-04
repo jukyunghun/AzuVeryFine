@@ -60,19 +60,26 @@
 		</div>
 	</div>
 	<script>
-        function injectMedication() {
-            var medicationInput = document.getElementById("medicationInput");
-            var amount = parseFloat(medicationInput.value);
-            if (!isNaN(amount) && amount > 0) {
-                if (confirm(amount + "ml의 약제를 투입하시겠습니까?")) {
-                    console.log(amount + "ml의 약제가 투입되었습니다.");
-                    updateMedicationGauge(amount);
-                    updateRemainingMedication(amount);
-                }
-            } else {
-                alert("올바른 약제 값을 입력하세요.");
-            }
-        }
+	function injectMedication() {
+	    var medicationInput = document.getElementById("medicationInput");
+	    var amount = parseFloat(medicationInput.value);
+	    var remainingMedication = parseFloat(document.getElementById("remainingMedication").innerText.replace("남은 약제: ", "").replace("ml", ""));
+
+	    if (!isNaN(amount) && amount > 0) {
+	        if (amount > remainingMedication) {
+	            alert("약제 투입량이 남은 약제보다 많습니다. 다시 입력해주세요.");
+	            return; // 약제 투입량이 남은 약제보다 클 때 함수 종료
+	        }
+
+	        if (confirm(amount + "ml의 약제를 투입하시겠습니까?")) {
+	            console.log(amount + "ml의 약제가 투입되었습니다.");
+	            updateMedicationGauge(amount);
+	            updateRemainingMedication(amount);
+	        }
+	    } else {
+	        alert("올바른 약제 값을 입력하세요.");
+	    }
+	}
 
         function updateMedicationGauge(amount) {
             var gauge = document.getElementById("medicationGauge");

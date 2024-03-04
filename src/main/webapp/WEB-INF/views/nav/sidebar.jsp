@@ -28,7 +28,7 @@
 			<div class="collapse" id="collapseControl"
 				aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 				<nav class="sb-sidenav-menu-nested nav">
-					<a class="nav-link" href="power">기기 전원 관리</a> <a
+					<a class="nav-link" href="power">배관 밸브 제어</a> <a
 						class="nav-link" href="precise">약제 투입</a>
 				</nav>
 			</div>
