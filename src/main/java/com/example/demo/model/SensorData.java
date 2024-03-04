@@ -26,11 +26,12 @@ import lombok.Setter;
 @Setter
 public class SensorData {
 	
-	public SensorData(BigDecimal phValue, BigDecimal turbidValue, BigDecimal flowValue, Sensor sensor) {
+	public SensorData(BigDecimal phValue, BigDecimal turbidValue, BigDecimal inFlowValue, BigDecimal outFlowValue, Sensor sensor) {
 		super();
 		this.phValue = phValue;
 		this.turbidValue = turbidValue;
-		this.flowValue = flowValue;
+		this.inFlowValue = inFlowValue;
+		this.outFlowValue = outFlowValue;
 		this.sensor = sensor;
 	}
 
@@ -49,8 +50,12 @@ public class SensorData {
 	private BigDecimal turbidValue;
 	
 	// 측정 값 
-	@Column(name="flowValue", nullable = false)
-	private BigDecimal flowValue;
+	@Column(name="inFlowValue", nullable = false)
+	private BigDecimal inFlowValue;
+	
+	// 측정 값 
+	@Column(name="outFlowValue", nullable = false)
+	private BigDecimal outFlowValue;
 
     // 측정 날짜 
 	// insert시 값 디폴트값 들어가게 값 넘기면 안됨!

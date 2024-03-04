@@ -20,7 +20,7 @@ public class JwtInterceptor implements HandlerInterceptor {
     	String queryString = request.getQueryString();
         // 쿼리스트링, CSS, JS, 이미지 파일은 인터셉트하지 않음
         String path = request.getRequestURI().substring(request.getContextPath().length());
-        if (path.startsWith("/assets/") || path.startsWith("/webjars/") || queryString != null) {
+        if (path.startsWith("/assets/") || path.startsWith("/webjars/") || queryString != null || path.startsWith("/1register/") || path.startsWith("/1register")) {
             return true;
         }
 
