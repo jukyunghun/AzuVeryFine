@@ -32,24 +32,15 @@ public class RaspController {
 	
 	@PostMapping("/RaspToSpring")
 	public String getSensorValue(@RequestParam("phValue") BigDecimal phValue, @RequestParam("turbidValue") BigDecimal turbidValue,
-							  @RequestParam("flowValue") BigDecimal flowValue, @RequestParam("identifier") long identifier) {
+							  @RequestParam("inFlowValue") BigDecimal inFlowValue, @RequestParam("outFlowValue") BigDecimal outFlowValue, @RequestParam("identifier") long identifier) {
 		count++;
-		sensorData = new SensorData(phValue, turbidValue, flowValue, new Sensor(identifier, null, null, null, null, null, null, null));
+		sensorData = new SensorData(phValue, turbidValue, inFlowValue, outFlowValue, new Sensor(identifier, null, null, null, null, null, null, null));
 		
 		if(count==5) {
-			sensorDataService.insertSensingData(identifier, phValue, turbidValue, flowValue);
+			sensorDataService.insertSensingData(identifier, phValue, turbidValue, inFlowValue, outFlowValue);
 			count=0;
 		}
-		
-		if(phValue.intValue()>=14 || phValue == null) {
-			//산도값 이상 사용자 알림
-		}
-		if(turbidValue.intValue()>250 || turbidValue == null) {
-			//탁도값 이상 사용자 알림
-		}
-		if(flowValue == null) {
-			//유량값 이상 사용자 알림
-		}
+
 		
 		Valve valve = valveService.getValveStatus(5);
 		

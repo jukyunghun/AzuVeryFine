@@ -32,7 +32,7 @@ public class SensorDataService {
     private EntityManager entityManager;
 	
 	@Transactional
-    public void insertSensingData(long identifier, BigDecimal phValue, BigDecimal turbidValue, BigDecimal flowValue) {
+    public void insertSensingData(long identifier, BigDecimal phValue, BigDecimal turbidValue, BigDecimal inFlowValue, BigDecimal outFlowValue) {
         // tbSensor 테이블에서 sensorIdx가 1인 레코드의 sensorOwner 값을 가져옴
 		Member member = (Member) entityManager.createQuery("SELECT s.member FROM Sensor s WHERE s.sensorIdx = :sensorIdx")
 	            .setParameter("sensorIdx", identifier)
@@ -45,7 +45,8 @@ public class SensorDataService {
         sensorData.setMember(member);
         sensorData.setPhValue(phValue); 
         sensorData.setTurbidValue(turbidValue);
-        sensorData.setFlowValue(flowValue);
+        sensorData.setInFlowValue(inFlowValue);
+        sensorData.setOutFlowValue(outFlowValue);
         sensorData.setSensingAt(LocalDateTime.now());
 
         entityManager.persist(sensorData);
@@ -69,7 +70,7 @@ public class SensorDataService {
 	            String formattedDateTime = dateTime.format(formatter); // 날짜 및 시간을 문자열로 변환
 	            
 	            // 문자열로 변환된 날짜 및 시간을 포함하는 Object 배열을 생성하여 리스트에 추가
-	            Object[] newData = {row[0], formattedDateTime, row[2], row[3], row[4], row[5], row[6]};
+	            Object[] newData = {row[0], formattedDateTime, row[2], row[3], row[4], row[5], row[6], row[7]};
 	            sensorDataList.add(newData);
 	        }
 	    }
