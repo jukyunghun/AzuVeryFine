@@ -15,7 +15,7 @@
 
 <body class="sb-nav-fixed">
     <%@ include file="nav/navbar.jsp"%>
-   <div id="layoutSidenav">
+    <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <%@ include file="nav/sidebar.jsp"%>
         </div>
@@ -37,8 +37,9 @@
                                         <thead>
                                             <tr>
                                                 <th>디바이스 이름</th>
-                                                <th>위치</th>
                                                 <th>연결 시간</th>
+                                                <th>상태</th>
+                                                <th>동작</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -64,20 +65,17 @@
                                     <thead>
                                         <tr>
                                             <th>디바이스 이름</th>
-                                            <th>위치</th>
                                             <th>연결 해제 시간</th>
+                                            <th>상태</th>
+                                            <th>동작</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <!-- 비연동 디바이스 목록을 표시하는 코드 -->
                                     </tbody>
                                 </table>
-                                <!-- 사용자가 직접 디바이스를 추가할 수 있도록 입력란과 버튼 추가 -->
-                                <div class="mb-3">
-                                    <input type="text" id="deviceNameInput" class="form-control" placeholder="디바이스 이름을 입력하세요">
-                                    <input type="text" id="deviceLocationInput" class="form-control mt-2" placeholder="위치를 입력하세요">
-                                </div>
-                                <button class="btn btn-primary" onclick="addDeviceManually()">디바이스 추가</button>
+                                <!-- 사용자가 직접 디바이스를 추가할 수 있도록 버튼 추가 -->
+                                <button class="btn btn-primary" onclick="addDevice()">디바이스 추가</button>
                             </div>
                         </div>
                     </div>
@@ -154,79 +152,28 @@
         }
 
         // 비활성 디바이스 목록으로 이동하는 함수
-        // 사용자가 직접 디바이스를 추가하는 함수
-        function addDevice() {
-            var deviceName = document.getElementById('deviceNameInput').value;
-            var deviceLocation = document.getElementById('deviceLocationInput').value;
-            if (deviceName && deviceLocation) {
-                // 새로운 행 생성
-                var newRow = document.createElement('tr');
-                // 디바이스 이름 셀 추가
-                var deviceNameCell = document.createElement('td');
-                deviceNameCell.innerText = deviceName;
-                newRow.appendChild(deviceNameCell);
-                // 위치 셀 추가
-                var deviceLocationCell = document.createElement('td');
-                deviceLocationCell.innerText = deviceLocation;
-                newRow.appendChild(deviceLocationCell);
-                // 연결 시간 셀 추가
-                var connectionTimeCell = document.createElement('td');
-                connectionTimeCell.innerText = getCurrentTime();
-                newRow.appendChild(connectionTimeCell);
+        function moveDeviceToInactiveList(row) {
+            var deviceName = row.cells[0].innerText;
+            var connectionTime = row.cells[1].innerText;
 
-                // 연동된 디바이스 목록 테이블에 행 추가
-                var activeDataTable = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-                activeDataTable.appendChild(newRow);
-            }
-        }
-
-        // 사용자가 직접 디바이스를 추가하는 함수
-        function addDeviceManually() {
-            var deviceName = document.getElementById('deviceNameInput').value;
-            var deviceLocation = document.getElementById('deviceLocationInput').value;
-            if (deviceName && deviceLocation) {
-                // 새로운 행 생성
-                var newRow = document.createElement('tr');
-                // 디바이스 이름 셀 추가
-                var deviceNameCell = document.createElement('td');
-                deviceNameCell.innerText = deviceName;
-                newRow.appendChild(deviceNameCell);
-                // 위치 셀 추가
-                var deviceLocationCell = document.createElement('td');
-                deviceLocationCell.innerText = deviceLocation;
-                newRow.appendChild(deviceLocationCell);
-                // 연결 시간 셀 추가
-                var connectionTimeCell = document.createElement('td');
-                connectionTimeCell.innerText = getCurrentTime();
-                newRow.appendChild(connectionTimeCell);
-
-                // 연동된 디바이스 목록 테이블에 행 추가
-                var activeDataTable = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-                activeDataTable.appendChild(newRow);
-            }
-        }
-
-        // 현재 시간을 반환하는 함수
-        function getCurrentTime() {
-            var now = new Date();
-            var year = now.getFullYear();
-            var month = String(now.getMonth() + 1).padStart(2, '0');
-            var day = String(now.getDate()).padStart(2, '0');
-            var hour = String(now.getHours()).padStart(2, '0');
-            var minute = String(now.getMinutes()).padStart(2, '0');
-            return year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
-        }
-
-        window.addEventListener('DOMContentLoaded', event => {
-            // Toggle the side navigation
-            const sidebarToggle = document.body.querySelector('#sidebarToggle');
-if (sidebarToggle) {
-    sidebarToggle.addEventListener('click', event => {
-        event.preventDefault();
-        document.body.classList.toggle('sb-sidenav-toggled');
-    });
-}
-        });
+            // 새로운 행 생성
+            var newRow = document.createElement('tr');
+            // 디바이스 이름 셀 추가
+            var deviceNameCell = document.createElement('td');
+            deviceNameCell.innerText = deviceName;
+            newRow.appendChild(deviceNameCell);
+            // 비연동 시간 셀 추가
+            var inactiveTimeCell = document.createElement('td');
+            inactiveTimeCell.innerText = connectionTime;
+            newRow.appendChild(inactiveTimeCell);
+            // 상태 셀 추가
+            var statusCell = document.createElement('td');
+            statusCell.innerText = "비활성";
+            newRow.appendChild(statusCell);
+            // 동작 셀 추가
+            var actionCell = document.createElement('td');
+            actionCell.innerHTML = '<button class="btn btn-success" onclick="toggleConnection(this)">연결</button> <button class="btn btn-danger" onclick="removeDevice(this)">삭제</button>';
+            newRow.appendChild(actionCell);
 
             // 비활성 디바이스 목록 테이블에 행 추가
             var inactiveDataTable = document.getElementById('inactiveDataTable').getElementsByTagName('tbody')[0];
