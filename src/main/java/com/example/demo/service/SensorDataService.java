@@ -2,6 +2,9 @@ package com.example.demo.service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +46,19 @@ public class SensorDataService {
 
         entityManager.persist(sensorData);
         System.out.println("센서데이터 삽입하는 jpa메서드 들어옴");
+    }
+	
+	public List<SensorData> getSensorDataForLastSixDays(String memberEmail) {
+		System.out.println("서비스 들어옴");
+        List<SensorData> sensorDataList = new ArrayList<>();
+        LocalDateTime now = LocalDateTime.now().with(LocalTime.MIN); // 오늘 날짜의 00시 00분 00초
+        for (int i = 0; i <= 5; i++) {
+            LocalDateTime startDateTime = now.minusDays(i);
+            LocalDateTime endDateTime = startDateTime.plusDays(1);
+            List<SensorData> data = repository.findByMemberMbEmailAndSensingAtBetween(memberEmail, startDateTime, endDateTime);
+            sensorDataList.addAll(data);
+        }
+        return sensorDataList;
     }
 	
 }

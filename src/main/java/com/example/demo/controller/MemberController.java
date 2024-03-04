@@ -2,11 +2,14 @@ package com.example.demo.controller;
 
 import java.time.LocalDateTime;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.demo.jwt.JwtTokenProvider;
 import com.example.demo.model.Member;
@@ -14,8 +17,11 @@ import com.example.demo.service.MemberService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
@@ -28,11 +34,15 @@ public class MemberController {
 	
 	
 	@PostMapping("/login")
-	public String login(@RequestParam("email") String email, @RequestParam("password") String pw, Model model, HttpServletResponse response) throws JsonMappingException, JsonProcessingException {
+	public String login(@RequestParam("email") String email, @RequestParam("password") String pw, Model model, HttpServletResponse response, HttpServletRequest request) throws JsonMappingException, JsonProcessingException {
 
 	    Member member = new Member();
 	    member.setMbEmail(email);
 	    member.setMbPw(pw);
+	    
+	    HttpSession session = request.getSession();
+	    
+	    session.setAttribute("email", email);
 
 	    Member result = service.login(member);
 
@@ -54,6 +64,7 @@ public class MemberController {
 	        refreshTokenCookie.setPath("/");
 	        refreshTokenCookie.setMaxAge(86400); // 1일 유효
 	        response.addCookie(refreshTokenCookie);
+	        
 
 	        return "redirect:index";
 	    }
@@ -62,6 +73,7 @@ public class MemberController {
 
 	//회원가입
 	@PostMapping("/1register")
+	@ResponseBody
 	public String registerMember(@RequestParam("email") String mbEmail, 
             @RequestParam("password") String mbPw,
             @RequestParam("firstName") String mbName,
@@ -72,10 +84,6 @@ public class MemberController {
             @RequestParam("confirmPassword") String confirmPassword,
             HttpServletResponse response) {
 
-		System.out.println("들어옴");
-	    if (!mbPw.equals(confirmPassword)) {
-	        return "redirect:/register"; 
-	    }
 
 	    Member member = new Member();
 	    member.setMbEmail(mbEmail);
@@ -90,9 +98,9 @@ public class MemberController {
 	    try {
 	        Member result = service.register(member);
 	        System.out.println(result.getMbEmail());
-	        return "redirect:/loginpage"; 
+	        return "success"; 
 	    } catch (RuntimeException e) {
-	        return "redirect:/register?error="+e.getMessage(); 
+	        return "fail"; 
 	    }
 	}
 	

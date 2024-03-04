@@ -58,6 +58,7 @@ public class RaspController {
 	
 	@GetMapping("/getGraphData")
 	public SensorData getGraphData() {
+		//실시간 그래프
 		return sensorData;
 	}
 	

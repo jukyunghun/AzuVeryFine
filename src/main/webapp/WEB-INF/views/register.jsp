@@ -10,6 +10,7 @@
 <link href="/final/assets/css/styles.css" rel="stylesheet">
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
 	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body class="bg-white">
@@ -30,7 +31,7 @@
 								<%= error %>
 								</div>
 								<% } %>
-									<form action="1register" method="post">
+									<form id="1register" action="1register" method="post">
 										<div class="form-floating mb-3">
 											<input class="form-control" id="inputEmail" name="email"
 												type="email" placeholder="name@example.com" required /> <label
@@ -119,7 +120,7 @@
 
 
 
-	<script> src="/final/assets/js/scripts.js"></script>
+	<script> src="/final/assets/js/scripts.js" </script>
 	<script>
 		// 입력값이 변경될 때마다 호출되는 함수
 		function checkInputs() {
@@ -181,20 +182,39 @@
 				});
 	</script>
 
+	
 	<script>
-		// 회원 가입 완료 확인 창
-		function showRegistrationConfirmation() {
-			alert('회원 가입이 완료되었습니다.');
-		}
+	$(document).ready(function() {
+	    $('#1register').submit(function(event) {
+	        // 폼 제출 방지
+	        event.preventDefault();
 
-		// 회원가입 양식 제출 시 확인 창을 표시
-		document.getElementById('registrationForm').addEventListener('submit',
-				function(event) {
-					// 기본 제출 이벤트를 막음
-					event.preventDefault();
-					// 확인 창을 표시
-					showRegistrationConfirmation();
-				});
+	        // 폼 데이터 가져오기
+	        var formData = $(this).serialize();
+
+	        // AJAX 요청
+	        $.ajax({
+	            type: 'POST',
+	            url: '/final/1register',
+	            data: formData,
+	            success: function(response) {
+	                // 서버 응답 처리
+	                if (response.trim() === "success") {
+	                    // 회원가입이 성공한 경우
+	                    alert("회원가입이 완료되었습니다.");
+	                    window.location.href = "/final/loginpage"; // 로그인 페이지로 이동
+	                } else {
+	                    // 회원가입이 실패한 경우
+	                    alert("이미 등록된 이메일 주소입니다.");
+	                }
+	            },
+	            error: function() {
+	                // AJAX 요청 실패 시 처리
+	                alert("서버 오류가 발생했습니다. 다시 시도해주세요.");
+	            }
+	        });
+	    });
+	});
 	</script>
 
 	<script src="/final/assets/js/scripts.js"></script>

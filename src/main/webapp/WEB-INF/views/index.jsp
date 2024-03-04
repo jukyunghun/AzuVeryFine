@@ -17,6 +17,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
 	crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -239,8 +240,21 @@
             });
         });
         
-	    
-        
+	    let graphData;
+        window.onload = function() {
+            $.ajax({
+                url: "/final/getDailyGraphData",
+                type: "GET",
+                success: function(response) {
+                    graphData = response;
+                    console.log(graphData);
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    alert("그래프 데이터 받아오기 실패")
+                }
+            });
+        };
         
         
         
