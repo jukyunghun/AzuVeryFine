@@ -28,13 +28,11 @@ public class JwtInterceptor implements HandlerInterceptor {
         
         // 로그인 페이지는 인터셉트하지 않음
         if (path.equals("/final/loginpage") || path.equals("/loginpage")) {
-            System.out.println("로그인 페이지 요청");
             return true;
         }
 
         // 토큰이 있는지 확인
         String token = tokenProvider.getAccessTokenFromRequest(request);
-        System.out.println("AjToken: "+token);
         if (token == null || !tokenProvider.validateAccessToken(token)) {
         	String refreshToken = tokenProvider.getRefreshTokenFromRequest(request);
             if(refreshToken != null && tokenProvider.validateRefreshToken(refreshToken)) {
@@ -49,14 +47,11 @@ public class JwtInterceptor implements HandlerInterceptor {
                 return true; // 요청 허용
             }else {
             	// 토큰이 없거나 유효하지 않은 경우 로그인 페이지로 리다이렉트
-                System.out.println("토큰이 없거나 유효하지 않음");
                 response.sendRedirect(request.getContextPath() + "/loginpage");
                 return false;
             }
         }
-
-        // 토큰이 유효한 경우, 요청 허용
-        System.out.println("토큰이 있음, 요청 허용");
+        
         return true;
     }
 }

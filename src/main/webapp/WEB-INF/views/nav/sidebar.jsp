@@ -8,10 +8,6 @@
 				<div class="sb-nav-link-icon">
 					<i class="fas fa-tachometer-alt"></i>
 				</div> 오탁수 처리량
-			</a> <a class="nav-link" href="connect">
-				<div class="sb-nav-link-icon">
-					<i class="fa fa-rss"></i>
-				</div> 연동 디바이스 관리
 			</a>
 			<div class="sb-sidenav-menu-heading">Control</div>
 			<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
