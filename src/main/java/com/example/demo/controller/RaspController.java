@@ -31,7 +31,7 @@ public class RaspController {
 	int count=0;
 	@PostMapping("/RaspToSpring")
 	public String getSensorValue(@RequestParam("phValue") BigDecimal phValue, @RequestParam("turbidValue") BigDecimal turbidValue,
-							  @RequestParam("inFlowValue") BigDecimal inFlowValue, @RequestParam("outFlowValue") BigDecimal outFlowValue, @RequestParam("identifier") long identifier) {
+							  @RequestParam("inFlowValue") BigDecimal inFlowValue, @RequestParam("outFlowValue") BigDecimal outFlowValue, @RequestParam("identifier") int identifier) {
 		count++;
 		sensorData = new SensorData(phValue, turbidValue, inFlowValue, outFlowValue, new Sensor(identifier, null, null, null));
 		
@@ -44,7 +44,7 @@ public class RaspController {
 			count=0;
 		}
 	
-		Valve valve = valveService.getValveStatus(8);
+		Valve valve = valveService.getValveStatus(identifier);
 		
 		return valve.getValveStatus() != null ? valve.getValveStatus() : "밸브 상태값 못받아옴";
 	}

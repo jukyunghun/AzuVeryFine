@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -22,6 +24,15 @@ import lombok.Setter;
 @Setter
 public class Valve {
 	
+	
+	
+	public Valve(Member member, LocalDateTime installedAt, String valveStatus) {
+		super();
+		this.member = member;
+		this.installedAt = installedAt;
+		this.valveStatus = valveStatus;
+	}
+
 	@Id // primary 키 지정
 	@Column(name="valveIdx")
     private long valveIdx;
@@ -33,11 +44,16 @@ public class Valve {
 
     // 밸브 설치일자 
     @Column(name="installedAt", length=40, nullable = false)
-    private String installedAt;
+    private LocalDateTime installedAt;
 
     // 밸브 상태
     @Column(name="valveStatus", length=40, nullable = false)
     private String valveStatus;
+    
+    // 센서 식별자 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sensorIdx", referencedColumnName = "sensorIdx")
+    private Sensor sensor;
 
     
 }

@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -23,6 +25,14 @@ import lombok.Setter;
 public class Sensor {
 
 	
+	
+	public Sensor(Member member, LocalDateTime installedAt, String sensorLoc) {
+		super();
+		this.member = member;
+		this.installedAt = installedAt;
+		this.sensorLoc = sensorLoc;
+	}
+
 	// 센서 식별자 
 	// insert시 값 디폴트값 들어가게 값 넘기면 안됨!
 	@Id // primary 키 지정
@@ -37,7 +47,7 @@ public class Sensor {
     // 센서 설치일자 
     // insert시 값 디폴트값 들어가게 값 넘기면 안됨!
     @Column(name="installedAt", length=40, nullable = false)
-    private String installedAt;
+    private LocalDateTime installedAt;
 
     // 센서 설치위치 
     @Column(name="sensorLoc", length=50, nullable = false)
