@@ -11,6 +11,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
    crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body class="bg-white">
    <div id="layoutAuthentication">
@@ -91,7 +92,7 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="form-floating mb-3">
+                              <div class="form-floating mb-3" onclick="openPostcodePopup()">
                                  <input class="form-control" id="sensorIoc" name="sensorIoc"
                                     type="text" placeholder="Enter your sensorIoc" required /> <label
                                     for="InputsensorIoc">센서 설치 위치</label>
@@ -126,6 +127,38 @@
 
    <script> src="/final/assets/js/scripts.js"></script>
    <script>
+   
+   function openPostcodePopup() {
+       // div 안의 값 가져오기
+       var sensorIocValue = document.getElementById('sensorIoc').value.trim();
+       
+       // 값이 비어있는지 확인
+       if (sensorIocValue === '') {
+           new daum.Postcode({
+               oncomplete: function(data) {
+                   // 선택한 주소 정보를 받아옴
+                   var fullAddress = data.address; // 전체 주소
+                   var extraAddress = ''; // 조합형 주소
+                   
+                   // 조합형 주소 조건 처리
+                   if (data.buildingName !== '' && data.apartment === 'Y') {
+                       extraAddress += data.buildingName;
+                   }
+                   if (extraAddress !== '') {
+                       extraAddress = ' (' + extraAddress + ')';
+                   }
+                   // 전체 주소와 조합형 주소를 합쳐서 표시할 주소 생성
+                   sensorIocValue = fullAddress + extraAddress;
+                   
+                   // 선택한 주소를 div에 표시
+                   document.getElementById('sensorIoc').value = sensorIocValue;
+                   
+                   // 이 부분에서 추가적인 동작 수행 가능
+               }
+           }).open();
+       }
+   }
+   
       // 입력값이 변경될 때마다 호출되는 함수
       function checkInputs() {
          var inputs = document.querySelectorAll('input[required]'); // 필수 입력 필드 선택
