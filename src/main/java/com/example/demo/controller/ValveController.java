@@ -1,9 +1,13 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.Valve;
 import com.example.demo.service.ValveService;
@@ -36,5 +40,17 @@ public class ValveController {
 	    } else {
 	    	response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // 잘못된 요청
 	    }
+	}
+	
+	@GetMapping("/valveGetStatus")
+	@ResponseBody
+	public String getValveStatus(HttpServletRequest request) {
+		System.out.println("메서드 들어옴");
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+		
+		List<String> result = service.getValveStatus2(email);
+		String result2 = result.get(0);
+		return result2;
 	}
 }

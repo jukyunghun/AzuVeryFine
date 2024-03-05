@@ -17,6 +17,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
     crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         
 .lock {
@@ -78,9 +79,34 @@
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="/final/assets/js/scripts.js"></script>
+    
     <script>
-       
-        function toggleValve() {
+    
+    window.onload = function () {
+    	
+    	
+    	$.ajax({
+            url: '/final/valveGetStatus',
+            type: 'GET',
+            success: function(valveStatus) {
+            	console.log(valveStatus);
+                // 요청이 성공한 경우 실행될 코드
+                var valveSwitch = $('#valveSwitch');
+                valveSwitch.prop('checked', valveStatus === '1');
+                updateValveImage(valveStatus);
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                // 요청이 실패한 경우 실행될 코드
+                console.error('밸브 상태를 가져오는 중 오류 발생:', errorThrown);
+            }
+        });
+    	
+
+    };
+    
+
+ // toggleValve 함수 정의
+    function toggleValve() {
             var valveSwitch = document.getElementById("valveSwitch");
             var valveStatus = valveSwitch.checked ? "1" : "0"; // 밸브 스위치 상태에 따라 1 또는 0 설정
 
@@ -106,7 +132,7 @@
                     console.error("밸브 상태 변경 중 오류 발생:", error);
                 });
         }
-
+    
         // 밸브 이미지 업데이트 함수
         function updateValveImage(valveStatus) {
             var valveImage = document.getElementById("valveImage");

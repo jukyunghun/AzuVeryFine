@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +42,11 @@ public class ValveService {
 
 	public Valve getValveStatus(int idx) {
 		return repository.findBySensorSensorIdx(idx);
+	}
+	
+	public List<String> getValveStatus2(String email) {
+		Member member = new Member(email);
+		return repository.findByCustomQuery(email);
 	}
 	
 	@Transactional
