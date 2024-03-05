@@ -23,6 +23,11 @@ public class Member {
 
 	
 	
+	public Member(String mbEmail) {
+		super();
+		this.mbEmail = mbEmail;
+	}
+
 	public Member(String mbEmail, String mbPw, String mbName) {
 		super();
 		this.mbEmail = mbEmail;

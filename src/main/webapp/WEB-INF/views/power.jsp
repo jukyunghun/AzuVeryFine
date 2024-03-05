@@ -40,7 +40,7 @@
 
 </head>
 <body class="sb-nav-fixed">
-    <%@ include file="nav/navbar.jsp"%>
+    <jsp:include page="nav/navbar.jsp" />
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <%@ include file="nav/sidebar.jsp"%>
