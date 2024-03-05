@@ -186,60 +186,92 @@
         
     
      
-			// 오염도 계산 함수
-			function calculatePollution(turbidValue, phValue) {
-			    var turbidLevel;
-			    var phLevel;
+     // 탁도와 pH 값을 가중치를 사용하여 조합하여 수질 등급을 결정하는 함수
+        function calculateWaterQualityGrade(turbidity, ph) {
+            // 탁도를 5단계로 나누기
+            var turbidityGrade;
+            if (turbidity >= 200) {
+                turbidityGrade = 5;
+            } else if (turbidity >= 150) {
+                turbidityGrade = 4;
+            } else if (turbidity >= 100) {
+                turbidityGrade = 3;
+            } else if (turbidity >= 50) {
+                turbidityGrade = 2;
+            } else {
+                turbidityGrade = 1;
+            }
 
-			    // 탁도를 5단계로 나누기
-			    if (turbidValue >= 200) {
-			        turbidLevel = 5;
-			    } else if (turbidValue >= 150) {
-			        turbidLevel = 4;
-			    } else if (turbidValue >= 100) {
-			        turbidLevel = 3;
-			    } else if (turbidValue >= 50) {
-			        turbidLevel = 2;
-			    } else {
-			        turbidLevel = 1;
-			    }
+            // pH 값을 5단계로 나누기
+            var phGrade;
+            if (ph >= 13) {
+                phGrade = 5;
+            } else if (ph >= 10) {
+                phGrade = 4;
+            } else if (ph == 7) {
+                phGrade = 1;
+            } else if (ph >= 4) {
+                phGrade = 4;
+            } else {
+                phGrade = 5;
+            }
 
-			    // pH 값을 5단계로 나누기
-			    if (phValue >= 13) {
-			        phLevel = 5;
-			    } else if (phValue >= 10) {
-			        phLevel = 4;
-			    } else if (phValue >= 7) {
-			        phLevel = 3;
-			    } else if (phValue >= 4) {
-			        phLevel = 2;
-			    } else {
-			        phLevel = 1;
-			    }
+            // 탁도와 pH 값의 등급을 종합하여 최종 수질 등급 결정
+            var combinedGrade = (turbidityGrade + phGrade) / 2;
 
-			    // 오염도 계산
-			    var pollution = Math.round((turbidLevel + phLevel) / 2);
+            return combinedGrade;
+        }
 
-			    return pollution;
-			}
+        // 오염도를 업데이트하는 함수
+        function updatePollutionGauge(grade) {
+            var pollutionGauge = document.getElementById('pollutionGauge');
+            var pollutionValue = document.getElementById('pollutionValue');
+            var pollutionLevel = document.getElementById('pollutionLevel');
 
-			// 오염도 게이지 업데이트
-			setInterval(function () {
-			    // 오염도 게이지 초기화
-			    updatePollutionGauge(0);
+            // 수질 등급 텍스트 표시
+            pollutionValue.innerText = grade;
 
-			    // 서버에서 탁도와 pH 값을 가져옴
-			    $.get("/final/getGraphData", function(data) {
-			        var turbidValue = data.turbidValue;
-			        var phValue = data.phValue;
+            // 수질 등급에 따른 게이지 너비 조절
+            if (grade >= 4.0) {
+                pollutionGauge.style.width = '100%';
+                pollutionGauge.classList.remove('bg-info', 'bg-success', 'bg-warning');
+                pollutionGauge.classList.add('bg-danger');
+                pollutionLevel.innerText = '매우 나쁨';
+            } else if (grade >= 3.0) {
+                pollutionGauge.style.width = '80%';
+                pollutionGauge.classList.remove('bg-info', 'bg-success', 'bg-danger');
+                pollutionGauge.classList.add('bg-warning');
+                pollutionLevel.innerText = '나쁨';
+            } else if (grade >= 2.0) {
+                pollutionGauge.style.width = '60%';
+                pollutionGauge.classList.remove('bg-info', 'bg-danger', 'bg-warning');
+                pollutionGauge.classList.add('bg-success');
+                pollutionLevel.innerText = '보통';
+            } else {
+                pollutionGauge.style.width = '40%';
+                pollutionGauge.classList.remove('bg-danger', 'bg-success', 'bg-warning');
+                pollutionGauge.classList.add('bg-info');
+                pollutionLevel.innerText = '양호';
+            }
+        }
+        setInterval(function () {
+            console.log("asdasdasdasd : "+window.sensorData);
+            if (window.sensorData) {
+                var receivedTurbidity = window.sensorData.turbidValue;
+                var receivedPh = window.sensorData.phValue;
+                console.log("탁도값"+receivedTurbidity);
+                console.log("ph값"+receivedPh);
 
-			        // 오염도 계산
-			        var newValue = calculatePollution(turbidValue, phValue);
+                // 수질 등급 계산
+                var waterQualityGrade = calculateWaterQualityGrade(receivedTurbidity, receivedPh);
 
-			        // 오염도 업데이트
-			        updatePollutionGauge(newValue);
-			    });
-			}, 10000); // 10초마다 업데이트
+                // 오염도 업데이트
+                updatePollutionGauge(waterQualityGrade);
+            }
+        }, 10000); // 10초마다 업데이트
+        
+        
+        
         // 그래프 3 (실시간 유입량)
         var ctx3 = document.getElementById("dailyChart").getContext('2d');
         var data3 = [5, 2, 6, 2, 7, 9];
@@ -355,6 +387,7 @@
                 alert("그래프 데이터 받아오기 실패")
             }
         });
+
     };
 
     function processData() {

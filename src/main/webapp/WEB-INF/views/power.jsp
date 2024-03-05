@@ -33,8 +33,16 @@
       background-image: url(/final/assets/images/unlock.jpg);
     display: flex;
     }
+    
+    .container-fluid {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    height: 100vh; /* 브라우저 높이를 100%로 설정 */
+	}
+    
     </style>
-    </style>
+
 </head>
 <body class="sb-nav-fixed">
     <%@ include file="nav/navbar.jsp"%>
@@ -43,35 +51,29 @@
             <%@ include file="nav/sidebar.jsp"%>
         </div>
         <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4">
-                    <h1 class="mt-4" style="font-weight: bold;">배관 밸브 제어</h1>
-                    <ol class="breadcrumb mb-4">
-                    </ol>
-                    <!-- 이미지 -->
-                    <img id="valveImage" src="/final/assets/images/lock.jpg" class="lock" alt="Lock" style="width: auto; height: 500px; margin-right: 500px;">
-                    <!-- 배관 벨브 제어 -->
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-wrench me-1"></i> 배관 밸브 제어
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-check form-switch">
-                                        <!-- 이미지 왼쪽에 배치 -->
-                                        <input class="form-check-input" type="checkbox"
-                                            id="valveSwitch" onchange="toggleValve()"> 
-                                        <label class="form-check-label" for="valveSwitch">
-                                            배관 밸브 열기/닫기
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+          <main>
+    <div class="container-fluid px-4 d-flex justify-content-center align-items-center flex-column">
+        <h1 class="mt-4 text-center" style="font-weight: bold;">배관 밸브 제어</h1>
+        <img id="valveImage" src="/final/assets/images/lock.jpg" class="lock my-4" alt="Lock" style="width: auto; height: 500px;">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-wrench me-1"></i> 배관 밸브 제어
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="valveSwitch" onchange="toggleValve()"> 
+                            <label class="form-check-label" for="valveSwitch">
+                                배관 밸브 열기/닫기
+                            </label>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
+        </div>
+    </div>
+</main>
         </div>
         <%@ include file="nav/footer.jsp"%>
     </div>

@@ -4,12 +4,19 @@ let lastTurbidAlertTime = 0;
 let lastInFlowAlertTime = 0;
 let lastOutFlowAlertTime = 0;
 
+///////// 전역 변수로 센서 데이터 저장
+window.sensorData = null;
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // 추가된 부분: 센서 데이터 확인 함수
     function checkSensorData() {
         $.get("/final/getGraphData", function(data) {
             console.log(data);
+            
+
+			////////////// 센서 데이터를 전역 변수에 저장
+            window.sensorData = data;
 
             // ph 센서 데이터 확인
             if (data.phValue === null) {
@@ -58,7 +65,8 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     }
-
+	checkSensorData(); // 페이지 로드와 함께 checkSensorData 함수를 한 번 실행
+	
     // 일정 시간마다 checkSensorData 함수 호출
     setInterval(checkSensorData, 5000); // 5초마다 호출
 
