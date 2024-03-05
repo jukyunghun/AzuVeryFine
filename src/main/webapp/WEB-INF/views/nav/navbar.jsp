@@ -3,7 +3,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 	<!-- Navbar Brand-->
-	<a class="navbar-brand ps-3" href="index">Start Bootstrap</a>
+	<a class="navbar-brand ps-3" href="index">AzuVeryFine</a>
 	<!-- Sidebar Toggle-->
 	<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 		id="sidebarToggle" href="#!">

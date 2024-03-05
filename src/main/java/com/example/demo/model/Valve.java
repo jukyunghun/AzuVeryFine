@@ -31,25 +31,9 @@ public class Valve {
     @JoinColumn(name = "valveOwner",referencedColumnName = "mbEmail", nullable = false)
     private Member member;
 
-	// 밸브 UID
-    @Column(name="valveUid", length=30, nullable = false)
-    private String valveUid;
-
-    // 밸브 명 
-    @Column(name="valveName", length=40, nullable = false)
-    private String valveName;
-
-    // 밸브 구분 
-    @Column(name="valveType", length=20, nullable = false)
-    private String valveType;
-
     // 밸브 설치일자 
     @Column(name="installedAt", length=40, nullable = false)
     private String installedAt;
-
-    // 밸브 설치위치 
-    @Column(name="valveLoc", length=40, nullable = false)
-    private String valveLoc;
 
     // 밸브 상태
     @Column(name="valveStatus", length=40, nullable = false)

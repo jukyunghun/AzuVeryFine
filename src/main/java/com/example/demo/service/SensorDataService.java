@@ -40,7 +40,7 @@ public class SensorDataService {
 
         // 가져온 sensorOwner 값을 사용하여 tbSensing 테이블에 데이터 삽입
         SensorData sensorData = new SensorData();
-        Sensor sensor = new Sensor(identifier, null, null, null, null, null, null, null);
+        Sensor sensor = new Sensor(identifier, null, null, null);
         sensorData.setSensor(sensor);
         sensorData.setMember(member);
         sensorData.setPhValue(phValue); 
@@ -51,6 +51,26 @@ public class SensorDataService {
 
         entityManager.persist(sensorData);
         System.out.println("센서데이터 삽입하는 jpa메서드 들어옴");
+    }
+	
+	@Transactional
+    public void insertFlowData(long identifier, BigDecimal inFlowValue, BigDecimal outFlowValue) {
+        // tbSensor 테이블에서 sensorIdx가 1인 레코드의 sensorOwner 값을 가져옴
+		Member member = (Member) entityManager.createQuery("SELECT s.member FROM Sensor s WHERE s.sensorIdx = :sensorIdx")
+	            .setParameter("sensorIdx", identifier)
+	            .getSingleResult();
+
+        // 가져온 sensorOwner 값을 사용하여 tbSensing 테이블에 데이터 삽입
+        SensorData sensorData = new SensorData();
+        Sensor sensor = new Sensor(identifier, null, null, null);
+        sensorData.setSensor(sensor);
+        sensorData.setMember(member);
+        sensorData.setInFlowValue(inFlowValue);
+        sensorData.setOutFlowValue(outFlowValue);
+        sensorData.setSensingAt(LocalDateTime.now());
+
+        entityManager.persist(sensorData);
+        System.out.println("유량센서데이터 삽입하는 jpa메서드 들어옴");
     }
 	
 	public List<Object[]> getSensorDataForLastSixDays(String memberEmail) {

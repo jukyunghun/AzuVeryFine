@@ -33,14 +33,18 @@ public class RaspController {
 	public String getSensorValue(@RequestParam("phValue") BigDecimal phValue, @RequestParam("turbidValue") BigDecimal turbidValue,
 							  @RequestParam("inFlowValue") BigDecimal inFlowValue, @RequestParam("outFlowValue") BigDecimal outFlowValue, @RequestParam("identifier") long identifier) {
 		count++;
-		sensorData = new SensorData(phValue, turbidValue, inFlowValue, outFlowValue, new Sensor(identifier, null, null, null, null, null, null, null));
+		sensorData = new SensorData(phValue, turbidValue, inFlowValue, outFlowValue, new Sensor(identifier, null, null, null));
+		
+		if(count!=5) {
+			sensorDataService.insertFlowData(identifier, inFlowValue, outFlowValue);
+		}
 		
 		if(count==5) {
 			sensorDataService.insertSensingData(identifier, phValue, turbidValue, inFlowValue, outFlowValue);
 			count=0;
 		}
 	
-		Valve valve = valveService.getValveStatus(5);
+		Valve valve = valveService.getValveStatus(8);
 		
 		return valve.getValveStatus() != null ? valve.getValveStatus() : "밸브 상태값 못받아옴";
 	}

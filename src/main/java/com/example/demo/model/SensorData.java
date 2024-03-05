@@ -42,19 +42,19 @@ public class SensorData {
     private long sensingIdx;
 
     // 측정 값 
-	@Column(name="phValue", nullable = false)
+	@Column(name="phValue")
     private BigDecimal phValue;
 	
 	// 측정 값 
-	@Column(name="turbidValue", nullable = false)
+	@Column(name="turbidValue")
 	private BigDecimal turbidValue;
 	
 	// 측정 값 
-	@Column(name="inFlowValue", nullable = false)
+	@Column(name="inFlowValue")
 	private BigDecimal inFlowValue;
 	
 	// 측정 값 
-	@Column(name="outFlowValue", nullable = false)
+	@Column(name="outFlowValue")
 	private BigDecimal outFlowValue;
 
     // 측정 날짜 
