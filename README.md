@@ -1,4 +1,4 @@
-# 🚲 Bicycle Safe Security (BSS) (팀명: ARGUINOM)
+# 리드미 프레임만 만들어놓으려고 복붙해놧음.
 ![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/1f54dc73-e7de-4e95-9e03-fd4ff5f3f9a5)
 
 
