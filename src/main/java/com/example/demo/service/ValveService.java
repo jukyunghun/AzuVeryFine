@@ -3,8 +3,14 @@ package com.example.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.Member;
+import com.example.demo.model.Sensor;
 import com.example.demo.model.Valve;
 import com.example.demo.repository.ValveRepository;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Service
 public class ValveService {
@@ -12,11 +18,14 @@ public class ValveService {
 	@Autowired
 	ValveRepository repository;
 	
+	@PersistenceContext
+    private EntityManager entityManager;
+	
 	public Integer toggleValve(String email) {
 		System.out.println("서비스");
-		Valve valve = repository.findByvalveStatus("1"); // 예시로 밸브 상태가 "1"인 것을 가져오도록 설정
+		Valve valve = repository.findByvalveStatusAndMemberMbEmail("1", email); // 예시로 밸브 상태가 "1"인 것을 가져오도록 설정
 		if (valve == null) {
-			valve = repository.findByvalveStatus("0"); // "1"인 상태의 밸브가 없다면 "0"인 상태의 밸브를 가져옴
+			valve = repository.findByvalveStatusAndMemberMbEmail("0", email); // "1"인 상태의 밸브가 없다면 "0"인 상태의 밸브를 가져옴
 		}
 		if (valve != null) {
 			if ("1".equals(valve.getValveStatus())) {
@@ -30,7 +39,18 @@ public class ValveService {
 	}
 
 	public Valve getValveStatus(int idx) {
-		return repository.findByValveIdx(idx);
+		return repository.findBySensorSensorIdx(idx);
+	}
+	
+	@Transactional
+	public void saveValve(Valve valve, Member member) {
+		long sensorIdx = (long) entityManager.createQuery("SELECT s.sensorIdx FROM Sensor s WHERE s.member = :sensorOwner")
+	            .setParameter("sensorOwner", member)
+	            .getSingleResult();
+		Sensor sensor = new Sensor();
+		sensor.setSensorIdx(sensorIdx);
+		valve.setSensor(sensor);
+		repository.save(valve);
 	}
 	
 }

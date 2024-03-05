@@ -6,7 +6,6 @@
     // 
 // Scripts
 // 
-response.setContentType("text/html; charset=UTF-8");
 
 window.addEventListener('DOMContentLoaded', event => {
 

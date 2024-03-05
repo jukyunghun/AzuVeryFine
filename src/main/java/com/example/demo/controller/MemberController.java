@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.demo.jwt.JwtTokenProvider;
 import com.example.demo.model.Member;
+import com.example.demo.model.Sensor;
+import com.example.demo.model.Valve;
 import com.example.demo.service.MemberService;
+import com.example.demo.service.SensorService;
+import com.example.demo.service.ValveService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
@@ -28,6 +32,12 @@ public class MemberController {
 	
 	@Autowired
 	MemberService service;
+	
+	@Autowired
+	SensorService sensorService;
+	
+	@Autowired
+	ValveService valveService;
 	
 	@Autowired
 	private JwtTokenProvider jwtTokenProvider;
@@ -81,6 +91,7 @@ public class MemberController {
 	            @RequestParam("companyAddress") String companyAddr,
 	            @RequestParam("companyPhone") String companyTel,
 	            @RequestParam("confirmPassword") String confirmPassword,
+	            @RequestParam("sensorIoc") String sensorIoc,
 	            HttpServletResponse response) {
 
 	      System.out.println("들어옴");
@@ -98,8 +109,13 @@ public class MemberController {
 	       member.setCompanyTel(companyTel);
 	       member.setJoinedAt(LocalDateTime.now());
 	       
+	       Sensor sensor = new Sensor(member, LocalDateTime.now(), sensorIoc);
+	       Valve valve = new Valve(member, LocalDateTime.now(), "0");
+	       
 	       try {
 	           Member result = service.register(member);
+	           sensorService.saveSensor(sensor);
+	           valveService.saveValve(valve, member);
 	           System.out.println(result.getMbEmail());
 	           return "redirect:/loginpage"; 
 	       } catch (RuntimeException e) {

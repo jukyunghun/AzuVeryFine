@@ -91,6 +91,11 @@
                                     </div>
                                  </div>
                               </div>
+                              <div class="form-floating mb-3">
+                                 <input class="form-control" id="sensorIoc" name="sensorIoc"
+                                    type="text" placeholder="Enter your sensorIoc" required /> <label
+                                    for="InputsensorIoc">센서 설치 위치</label>
+                              </div>
                               <div class="mt-4 mb-0">
                                  <div class="d-grid">
                                     <button id="registerBtn" class="btn btn-primary btn-block"

@@ -13,9 +13,9 @@ import jakarta.transaction.Transactional;
 @Repository
 public interface ValveRepository extends JpaRepository<Valve, Integer> {
 	
-	Valve findByvalveStatus(@Param("valveStatus") String valveStatus);
+	Valve findByvalveStatusAndMemberMbEmail(@Param("valveStatus") String valveStatus, @Param("mbEmail") String email);
 
-	Valve findByValveIdx(int idx); 
+	Valve findBySensorSensorIdx(int sensorIdx); 
 	
 	@Modifying
 	@Transactional
