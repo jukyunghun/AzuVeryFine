@@ -184,56 +184,62 @@
             }
         });
         
-     // 오염도 게이지 업데이트 함수
-			function updatePollutionGauge(value) {
-            var pollutionGauge = document.getElementById('pollutionGauge');
-            var pollutionValue = document.getElementById('pollutionValue');
-            var pollutionLevel = document.getElementById('pollutionLevel');
+    
+     
+			// 오염도 계산 함수
+			function calculatePollution(turbidValue, phValue) {
+			    var turbidLevel;
+			    var phLevel;
 
-            pollutionGauge.style.width = (value / 300 * 100) + '%'; // 최대값을 300으로 설정
-            pollutionGauge.setAttribute('aria-valuenow', value);
-            pollutionGauge.setAttribute('aria-valuemax', 300); // 최대값을 300으로 설정
+			    // 탁도를 5단계로 나누기
+			    if (turbidValue >= 200) {
+			        turbidLevel = 5;
+			    } else if (turbidValue >= 150) {
+			        turbidLevel = 4;
+			    } else if (turbidValue >= 100) {
+			        turbidLevel = 3;
+			    } else if (turbidValue >= 50) {
+			        turbidLevel = 2;
+			    } else {
+			        turbidLevel = 1;
+			    }
 
-            pollutionValue.innerText = value; // 현재 오염도 값 업데이트
+			    // pH 값을 5단계로 나누기
+			    if (phValue >= 13) {
+			        phLevel = 5;
+			    } else if (phValue >= 10) {
+			        phLevel = 4;
+			    } else if (phValue >= 7) {
+			        phLevel = 3;
+			    } else if (phValue >= 4) {
+			        phLevel = 2;
+			    } else {
+			        phLevel = 1;
+			    }
 
-            // 오염도 단계에 따른 텍스트 표시
-            if (value >= 200) {
-                pollutionLevel.innerText = '5단계';
-            } else if (value >= 100) {
-                pollutionLevel.innerText = '4단계';
-            } else if (value >= 50) {
-                pollutionLevel.innerText = '3단계';
-            } else if (value >= 25) {
-                pollutionLevel.innerText = '2단계';
-            } else {
-                pollutionLevel.innerText = '1단계';
-            }
+			    // 오염도 계산
+			    var pollution = Math.round((turbidLevel + phLevel) / 2);
 
-            // 오염도에 따른 색상 변경
-            if (value >= 200) {
-                pollutionGauge.classList.remove('bg-info', 'bg-success', 'bg-warning');
-                pollutionGauge.classList.add('bg-danger');
-            } else if (value >= 100) {
-                pollutionGauge.classList.remove('bg-info', 'bg-success', 'bg-danger');
-                pollutionGauge.classList.add('bg-warning');
-            } else if (value >= 50) {
-                pollutionGauge.classList.remove('bg-info', 'bg-danger', 'bg-warning');
-                pollutionGauge.classList.add('bg-success');
-            } else {
-                pollutionGauge.classList.remove('bg-danger', 'bg-success', 'bg-warning');
-                pollutionGauge.classList.add('bg-info');
-            }
-        }
+			    return pollution;
+			}
 
-        // 오염도 게이지 초기화
-        updatePollutionGauge(0);
+			// 오염도 게이지 업데이트
+			setInterval(function () {
+			    // 오염도 게이지 초기화
+			    updatePollutionGauge(0);
 
-        // 오염도 게이지 임의값 부여
-        setInterval(function () {
-            var newValue = Math.floor(Math.random() * 300); // 랜덤값 설정
-            updatePollutionGauge(newValue);
-        }, 10000); // 10초마다 업데이트
+			    // 서버에서 탁도와 pH 값을 가져옴
+			    $.get("/final/getGraphData", function(data) {
+			        var turbidValue = data.turbidValue;
+			        var phValue = data.phValue;
 
+			        // 오염도 계산
+			        var newValue = calculatePollution(turbidValue, phValue);
+
+			        // 오염도 업데이트
+			        updatePollutionGauge(newValue);
+			    });
+			}, 10000); // 10초마다 업데이트
         // 그래프 3 (실시간 유입량)
         var ctx3 = document.getElementById("dailyChart").getContext('2d');
         var data3 = [5, 2, 6, 2, 7, 9];
