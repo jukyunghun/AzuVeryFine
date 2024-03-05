@@ -34,14 +34,9 @@
     display: flex;
     }
     
-    .container-fluid {
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    height: 100vh; /* 브라우저 높이를 100%로 설정 */
-	}
-    
+   
     </style>
+
 
 </head>
 <body class="sb-nav-fixed">
@@ -51,22 +46,24 @@
             <%@ include file="nav/sidebar.jsp"%>
         </div>
         <div id="layoutSidenav_content">
-          <main>
-    <div class="container-fluid px-4 d-flex justify-content-center align-items-center flex-column">
-        <h1 class="mt-4 text-center" style="font-weight: bold;">배관 밸브 제어</h1>
-        <img id="valveImage" src="/final/assets/images/lock.jpg" class="lock my-4" alt="Lock" style="width: auto; height: 500px;">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <i class="fas fa-wrench me-1"></i> 배관 밸브 제어
-                    </div>
-                    <div class="card-body">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="valveSwitch" onchange="toggleValve()"> 
-                            <label class="form-check-label" for="valveSwitch">
-                                배관 밸브 열기/닫기
-                            </label>
+        <main>
+    <div class="container-fluid px-4">
+        <div class="d-flex justify-content-center align-items-center flex-column" style="min-height: auto;">
+            <h1 class="mt-4 text-center" style="font-weight: bold;">배관 밸브 제어</h1>
+            <img id="valveImage" src="/final/assets/images/lock.jpg" class="lock my-4" alt="Lock" style="width: auto; height: 200px;">
+            <div class="row justify-content-center">
+                <div class="col-lg-50">
+                    <div class="card mb-2">
+                        <div class="card-header">
+                            <i class="fas fa-wrench me-1"></i> 배관 밸브 제어
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="valveSwitch" onchange="toggleValve()"> 
+                                <label class="form-check-label" for="valveSwitch">
+                                    배관 밸브 열기/닫기
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -74,8 +71,8 @@
         </div>
     </div>
 </main>
-        </div>
-        <%@ include file="nav/footer.jsp"%>
+    <div>
+      <%@ include file="nav/footer.jsp"%>
     </div>
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
