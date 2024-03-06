@@ -12,11 +12,11 @@
 <br>
 
 ## ⭐ 주요 기능
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/3f8803bbcdb0ba4b6b3fc7eb2a0e6ec6611d8b53/Middle_project12/src/main/java/com/smhrd/bicycle/UserController.java" target='_blank'>로그인/회원가입/회원정보수정</a>
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/3f8803bbcdb0ba4b6b3fc7eb2a0e6ec6611d8b53/Middle_project12/src/main/java/com/smhrd/bicycle/ParkingController.java" target='_blank'>LOCK/UNLOCK</a>
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/eb78bd65a676770a437d7aee8d3b4b003fde1bb1/Middle_project12/src/main/java/com/smhrd/bicycle/GpsController.java#L26" target='_blank'>라이딩기록확인</a>
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/eb78bd65a676770a437d7aee8d3b4b003fde1bb1/Middle_project12/src/main/webapp/WEB-INF/views/map.jsp#L72" target='_blank'>현재위치확인</a>
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/3f8803bbcdb0ba4b6b3fc7eb2a0e6ec6611d8b53/Middle_project12/src/main/java/com/smhrd/bicycle/BoardController.java" target='_blank'>게시판</a>
+* 로그인/회원가입/회원정보수정
+* 오탁수 처리량, 오염도, 실시간 유입량, 일일 유입량 그래프 확인
+* 배관밸브제어
+* 약제 투입(양조절 기능)
+* 카메라 실시간 확인기능
 * <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/eb78bd65a676770a437d7aee8d3b4b003fde1bb1/Middle_project12/src/main/java/com/smhrd/bicycle/AlarmController.java" target='_blank'>알람기능</a>
 
 <br>
