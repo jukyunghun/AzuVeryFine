@@ -1,22 +1,22 @@
 # 리드미 프레임만 만들어놓으려고 복붙해놧음.
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/1f54dc73-e7de-4e95-9e03-fd4ff5f3f9a5)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/aab54409-267d-4f5e-adfe-cb0f5da11ba7)
 
 
 ## 👀 서비스 소개
-* 서비스명:  IoT기반 자전거 도난방지 시스템
-* 서비스설명: 웹으로 로그인하여 잠금/잠금해제 하여 자전거보안을 강화할 수 있고, 라이딩기록이 날짜별로 기록되어 해당날짜의 기록을 확인가능하고 게시판, 마이페이지, 유의사항 등 여러 부가기능을 추가하였다
+* 서비스명:  IoT기반 오탁수 저감장치 원격제어
+* 서비스설명: 웹으로 로그인하여 오탁수 저감장치에 대해 오탁수의 유입과 유출의 원격제어 및 기능 고장에 원격 감시를 통한 운용
 <br>
 
 ## 📅 프로젝트 기간
-2023.12.07 ~ 2024.01.15 (6주)
+2024.02.26 ~ 2024.03.12 (4주)
 <br>
 
 ## ⭐ 주요 기능
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/3f8803bbcdb0ba4b6b3fc7eb2a0e6ec6611d8b53/Middle_project12/src/main/java/com/smhrd/bicycle/UserController.java" target='_blank'>로그인/회원가입/회원정보수정</a>
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/3f8803bbcdb0ba4b6b3fc7eb2a0e6ec6611d8b53/Middle_project12/src/main/java/com/smhrd/bicycle/ParkingController.java" target='_blank'>LOCK/UNLOCK</a>
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/eb78bd65a676770a437d7aee8d3b4b003fde1bb1/Middle_project12/src/main/java/com/smhrd/bicycle/GpsController.java#L26" target='_blank'>라이딩기록확인</a>
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/eb78bd65a676770a437d7aee8d3b4b003fde1bb1/Middle_project12/src/main/webapp/WEB-INF/views/map.jsp#L72" target='_blank'>현재위치확인</a>
-* <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/3f8803bbcdb0ba4b6b3fc7eb2a0e6ec6611d8b53/Middle_project12/src/main/java/com/smhrd/bicycle/BoardController.java" target='_blank'>게시판</a>
+* 로그인/회원가입/회원정보수정
+* 오탁수 처리량, 오염도, 실시간 유입량, 일일 유입량 그래프 확인
+* 배관밸브제어
+* 약제 투입(양조절 기능)
+* 카메라 실시간 확인기능
 * <a href="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/eb78bd65a676770a437d7aee8d3b4b003fde1bb1/Middle_project12/src/main/java/com/smhrd/bicycle/AlarmController.java" target='_blank'>알람기능</a>
 
 <br>
@@ -59,7 +59,7 @@
     <tr>
         <td>데이터베이스</td>
         <td>
-            <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
+            <img src="https://img.shields.io/badge/mariaDB-003545?style=for-the-badge&logo=mariaDB&logoColor=white"/>
         </td>
     </tr>
     <tr>
@@ -74,80 +74,72 @@
 <br>
 
 ## ⚙ 시스템 아키텍처
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/f01b727a-fd4b-413e-b878-39c5aa5f87de)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/f4b1f012-261d-4d5f-b30e-c4dbf5c3ca7a)
 
 <br>
 
 ## 📌 회로도
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/cd60ee16-f249-42bb-846b-eb5e7abfc738)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/b880dd25-6752-41d8-86e0-324f1d9c295d)
+
 <br>
 
 ## 📌 SW유스케이스
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/3b2d2412-49bb-41ce-80d9-4c2bbabce6ad)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/5d739e07-0c0a-4ff0-ba0f-f3b5d67088ae)
+
 
 <br>
 
 ## 📌 서비스 흐름도
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/1578f63e-4eee-4959-903b-24bb0eff899d)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/f0a7887a-b6ed-4267-b405-c09b8ac10496)
+
 <br>
 
 ## 📌 ER다이어그램
-![E-R](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/6ce064b5-ea89-4f44-b136-d7f8fdbd3541)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/cf02b102-7f94-4b18-bea0-437496e770a3)
+
 <br>
 
 ## 🖥 화면 구성
 ### 메인화면
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/25c3f866-21e8-41db-8017-640027c3be2d)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/e32faaf6-173b-496f-9aca-89832627597f)
+
 <br>
-<ul><li>BSS시스템 첫 화면구성</li></ul>
+<ul><li>IoT오탁수 첫 화면구성</li></ul>
 <br>
 
-### 로그인/회원가입/마이페이지(회원정보수정)
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/40a60943-5bb2-436e-a4e0-3ccb860e2b73)
+### 회원가입/로그인
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/716e106c-d6d5-4cac-9968-6ebc1689c06d)
+
 <br>
-<ul><li>회원 가입페이지에서 회원 가입할 수 있고 로그인 후 기능들을 사용할 수 있고 마이페이지에서 회원 정보수정 기능을 이용할 수 있음</li></ul>
+<ul><li>회원 가입페이지에서 회원 가입할 수 있고 로그인 후 기능들을 사용할 수 있음</li></ul>
 <br>
 
-### 잠금/잠금해제
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/f5a4771e-905f-469b-bbd5-00f1e0a165c3)
+### 마이페이지(회원정보수정)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/656052b9-d34e-4186-bd21-d58aa9f438a0)
+
 <br>
-<ul><li>해당 페이지에서 자전거를 잠금(이동 불가) / 잠금 해체(이동 가능) 상태로 전환 가능</li></ul>
+<ul><li>회원 정보 수정에서 회원 정보수정 기능을 이용할 수 있음</li></ul>
 <br>
 
-### 도난 감지 알람
-![도난알림](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/144170214/925023f0-4cab-4e92-a886-8cc84e5b93b6)
+### 배관 밸브 제어
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/4d653cff-c266-4bae-9312-c3524822342c)
+
 <br>
-<ul><li>잠금상태에서 가속도센서 값이 변경된다면 도난 상태로 간주하여 장치에서 경보음 및 웹상으로 알림 전송</li></ul>
+<ul><li>기기 제어 배관 밸브 제어 페이지에서 배관을 열기(물유입) / 닫기(물유출) 상태로 전환 가능</li></ul>
+<br>
+
+### 약제 투입
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/7e78cc33-e52c-4f86-820d-82353fcf21bd)
+
+<br>
+<ul><li>약제를 어느정도나 투입할건지 입력하면 기존 양에 마이너스되어 값이 저장됨</li></ul>
 <br>
 
 ### 메뉴
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/d1d141ec-62f7-4090-89cc-9eeb01d977a5)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/ecff9b3c-10bd-4037-94fb-c62926d81cb2)
+
 <br>
 <ul><li>다른 페이지에서 사용하고자 하는 페이지로 이동을 용이하게 메뉴를 각 페이지에 할당함</li></ul>
-<br>
-
-### 라이딩기록
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/3ae8055f-8209-41e5-a74b-2f691c95ab21)
-<br>
-<ul><li>주행 후 날짜 입력 시에 해당 날짜에 주행한 거리, 속도, 시간과 지도에 주행한 경로를 표시함</li></ul>
-<br>
-
-### 자전거위치찾기
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/3fe91cec-6b3b-4558-a2dd-fbd3a4e461bf)
-<br>
-<ul><li>현재 자전거의 위치를 지도에 표시하여 도난 시 나의 자전거의 위치를 파악하게 함</li></ul>
-<br>
-
-### 유의사항
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/cbd87ac5-f47c-490b-8c5f-1970b662ed11)
-<br>
-<ul><li>사용 시 유의 사항</li></ul>
-<br>
-
-### 게시판
-![게시판1](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/144170214/a565c0af-c2ef-4ea6-b202-cd988ab00e58)
-<br>
-<ul><li>유저간의 소통할 수 있는 공간을 만들었고 제목 클릭 시 상세 게시물을 열람할 수 있고 자신이 작성한 게시물은 삭제할 수 있게 구현함</li></ul>
 <br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
@@ -158,16 +150,15 @@
     <td align="center"><img src="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/3666a1b2-5bbb-41ba-b113-9582fef82fbb" width="100" height="100"/></td>
     <td align="center"><img src="https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/7b108ab0-3080-4bf1-a4a8-ad15c80341b6" width="100" height="100"/></td>
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
-    <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
       
   </tr>
   <tr>
-    <td align="center"><strong>류훈민</strong></td>
     <td align="center"><strong>이건영</strong></td>
-    <td align="center"><strong>우리겨레</strong></td>
     <td align="center"><strong>양윤형</strong></td>
+    <td align="center"><strong>조용성</strong></td>
     <td align="center"><strong>이진우</strong></td>
-    <td align="center"><strong>김상현</strong></td>
+    <td align="center"><strong>주경훈</strong></td>
+
 
   </tr>
   
@@ -177,7 +168,6 @@
     <td align="center"><b>DataBase</b></td>  
     <td align="center"><b>DataBase</b></td>  
     <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Frontend</b></td>
   </tr>
   
   <tr>
@@ -186,78 +176,20 @@
     <td align="center"><a href="https://github.com/WooRiGyeoRe" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/YangYnuHyeong" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/dlwlsdn808" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/sangiot" target='_blank'>github</a></td>
-
   </tr>
   </table>
-  
-  ### 류훈민
-  * **프론트엔드**
-  * **카카오맵api 이용하여 자전거의 현재위치** 구현
-  * **카카오맵api 이용하여 라이딩 주행 기록** 구현
-  * 전반적인 웹 서비스 **화면 디자인** 및 **반응형 웹 적용**
-  * 기획 및 최종 발표 PPT 제작
-  * 시연영상 제작
+
 
 ### 이건영
-  * **프로젝트 팀장**, 퍼블리싱을 제외한 프로젝트 전반적인 기능 구현
-  * Spring 프로젝트 환경설정 및 라이브러리 추가
-  * 회원가입 및 회원정보수정 프론트엔드/백엔드 기능구현
-  * 잠금/잠금해제 프론트엔드/백엔드 기능구현
-  * 카카오맵 api를 이용한 일일 라이딩기록 확인 프론트엔드/백엔드 기능구현
-  * 카카오맵 api를 이용한 내 자전거 현재 위치 확인 비동기통신 프론트엔드/백엔드 기능구현
-  * 게시판 글 작성 및 삭제, 게시판 전체보기 프론트엔드/백엔드 기능구현
-  * 자전거 도난 예상시 웹페이지 사용자에게 알림 기능 프론트엔드/백엔드 기능구현
-  * 프로젝트 구현중 필요에 따라 데이터 베이스 테이블,컬럼 생성 및 삭제 / 데이터타입 및 제약조건 수정
-  * Arduino gps, 가속도센서 라이브러리 추가 및 구현
-  * Arduino 3가지 센서 및 모듈, 와이파이 통신 코드 통합
-  * 각 센서에서 받은 위도,경도,가속도 값을 파싱하여 http통신을 통해 Arduino to Spring 전달 기능구현
-  * 웹페이지에서 잠금/잠금해제, 알림중지(모듈 청각적 알림 중지) 데이터 Spring to Arduino 전달 기능구현
-
-### 이진우
-  * **프로젝트 결과 발표 및 포스터 작성**
-      - 프로젝트 결과물에 대한 분석 및 효과적인 데이터 시각화를 통한 프레젠테이션 제작 및 전달
-    UI/UX 및 웹페이지 문구 설계
-  * **WBS 작성**
-      - 프로젝트의 전체적인 구조 및 일정을 파악하기 위한 WBS(Work Breakdown Structure) 구축
-  * **프론트엔드**
-      - 사용자 인터페이스 개발: 로그인, 로그아웃, 회원가입 페이지 개발
-      - 커뮤니티 기능 구현: 사용자 간 소통을 위한 게시판 및 게시글 작성 페이지 개발
-      - 반응형 웹 디자인: 다양한 디바이스에 최적화된 메인화면 페이지 및 기능 구현
-  * **프로젝트 IOT 제품 결과물 설계 및 조립**
-      - IoT 기반 프로젝트 결과물의 설계 및 하드웨어 조립을 통한 실제 사용 가능한 프로토타입 제작
-    
-### 김상현
-  * **프론트엔드**
-  * **프론트 화면 제작 및 수정**
-      * 경보화면, 마이페이지, 로그인, 유의사항
-  * 전반적인 웹 서비스 **화면 디자인** 및 **반응형 웹 적용**
-  * 메뉴 활성화, 팝업창 기능 구현
-  * 화면설계서 및 최종발표 ppt 제작
-
-### 우리겨레
-  * **백엔드**
-    * **로그인/로그아웃 기능 구현**
-    * lock/Unlock 기능 구현
-    * 회원정보 수정 및 DB 연결
-    * 회원/비회원 구별 기능 구현
-  * **데이터베이스**
-    * 요구사항 정의서, 데이터분석도, 데이터명세서 문서 작성 및 수정  
-  * **아두이노**
-    * GPS센서, mp3모듈 연결 및 코드 작성
-  * **산출문서**
-    * 브레인스토밍, 프로젝트 기획서 문서 작성 
 
 ### 양윤형
-  * **백엔드**
-    * 로그인/로그아웃 기능 구현
-    * lock/Unlock 기능 구현
-    * 회원정보 수정 및 DB 연결
-    * 회원/비회원 구별 기능 구현
-  * **데이터베이스**
-    * 요구사항 정의서, 데이터분석도, 데이터명세서 문서 작성 및 수정
-  * **아두이노**
-    * GPS센서, mp3모듈 연결 및 코드 작성
+
+### 조용성
+
+### 이진우
+
+### 주경훈
+  
   
 
 ## 🤾‍♂️ 트러블슈팅

@@ -190,13 +190,13 @@
         function calculateWaterQualityGrade(turbidity, ph) {
             // 탁도를 5단계로 나누기
             var turbidityGrade;
-            if (turbidity >= 200) {
+            if (turbidity >= 5) {
                 turbidityGrade = 5;
-            } else if (turbidity >= 150) {
+            } else if (turbidity >= 4) {
                 turbidityGrade = 4;
-            } else if (turbidity >= 100) {
+            } else if (turbidity >= 3) {
                 turbidityGrade = 3;
-            } else if (turbidity >= 50) {
+            } else if (turbidity >= 2) {
                 turbidityGrade = 2;
             } else {
                 turbidityGrade = 1;
