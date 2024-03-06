@@ -123,7 +123,7 @@
     document.addEventListener("DOMContentLoaded", function () {
     	// 그래프 1 (실시간 업데이트) 
         var ctx1 = document.getElementById("realtimeChart").getContext('2d');
-        var data1 = [30, 50, 25, 45, 35, 55];
+        var data1 = [];
         var backgroundColor1 = 'rgba(255, 99, 132, 0.2)';
         var borderColor1 = 'rgba(255, 99, 132, 1)';
         var borderWidth1 = 1;
@@ -147,14 +147,62 @@
                     }
                 }
             }
-        });
+        });});
+
+        // 실시간 유입량 업데이트
+        function updateRealtimeInflowChart() {
+            // 새로운 데이터 가져와서 업데이트
+             // 서버에서 데이터를 받아옴
+                 // 센서 데이터를 전역 변수에 저장             
+
+                 // 최신 데이터를 receivedInFlow에 저장
+                 var receivedInFlow = window.sensorData.inFlowValue;
+             	 console.log("업데이트 리얼타임 메서드 : "+receivedInFlow);
+
+             	if (receivedInFlow !== null) {
+                    if (!window.receivedInFlowArray) {
+                        window.receivedInFlowArray = [];
+                    }
+
+                    window.receivedInFlowArray.push(receivedInFlow); // 새로운 데이터를 배열에 추가
+
+                    // 데이터 개수가 너무 많아지면, 오래된 데이터 삭제
+                    if (window.receivedInFlowArray.length > 5) {
+                        window.receivedInFlowArray.shift(); // 가장 오래된 데이터 삭제
+                    }
+
+                    // 배열의 데이터를 그래프에 적용
+                    realtimeChart.data.datasets[0].data = window.receivedInFlowArray;
+
+                    // 새로운 라벨 추가
+                    var currentDate = new Date();
+				    var minutes = currentDate.getMinutes();
+				    var seconds = currentDate.getSeconds();
+				    var formattedTime = minutes + ':' + seconds;
+				    realtimeChart.data.labels.push(formattedTime);
+
+                    // 라벨 개수가 데이터 개수보다 많으면, 오래된 라벨 삭제
+                    if (realtimeChart.data.labels.length > window.receivedInFlowArray.length) {
+                        realtimeChart.data.labels.shift(); // 가장 오래된 라벨 삭제
+                    }
+
+                    realtimeChart.update();
+                } else {
+                    console.log("유입량 데이터를 받아오지 못했습니다.");
+                }
+             };
+         
 
         setInterval(function () {
             // 새로운 데이터 가져와서 업데이트
-            var newData1 = [30, 50, 25, 45, 35, 55];
-            realtimeChart.data.datasets[0].data = newData1;
-            realtimeChart.update();
+            console.log("뉴데이터");
+            
+           
+                console.log("new" + window.sensorData.inFlowValue)
+                updateRealtimeInflowChart(); // 인자를 제거하고 함수를 호출
+            
         }, 5000);
+        	
 
         // 그래프 2 (일일 오탁수 처리량)
         var ctx2 = document.getElementById("graph3").getContext('2d');
@@ -274,7 +322,7 @@
         
         // 그래프 3 (실시간 유입량)
         var ctx3 = document.getElementById("dailyChart").getContext('2d');
-        var data3 = [5, 2, 6, 2, 7, 9];
+        var data3 = [];
         var backgroundColor3 = 'rgba(255, 206, 86, 0.2)';
         var borderColor3 = 'rgba(255, 206, 86, 1)';
         var borderWidth3 = 1;
@@ -299,12 +347,50 @@
                 }
             }
         });
-
-        setInterval(function () {
+        
+     // 실시간 유출량 업데이트
+        function updateRealtimeOutflowChart() {
             // 새로운 데이터 가져와서 업데이트
-            var newData3 = [5, 2, 6, 2, 7, 9];
-            chart3.data.datasets[0].data = newData3;
-            chart3.update();
+            // 서버에서 데이터를 받아옴
+            // 센서 데이터를 전역 변수에 저장             
+            // 최신 데이터를 receivedOutFlow에 저장
+            var receivedOutFlow = window.sensorData.outFlowValue;
+
+            if (receivedOutFlow !== null) {
+                if (!window.receivedOutFlowArray) {
+                    window.receivedOutFlowArray = [];
+                }
+
+                window.receivedOutFlowArray.push(receivedOutFlow); // 새로운 데이터를 배열에 추가
+
+                // 데이터 개수가 너무 많아지면, 오래된 데이터 삭제
+                if (window.receivedOutFlowArray.length > 5) {
+                    window.receivedOutFlowArray.shift(); // 가장 오래된 데이터 삭제
+                }
+
+                // 배열의 데이터를 그래프에 적용
+                chart3.data.datasets[0].data = window.receivedOutFlowArray;
+
+                // 새로운 라벨 추가 (분과 초만 포함)
+                var currentDate = new Date();
+                var minutes = currentDate.getMinutes();
+                var seconds = currentDate.getSeconds();
+                var formattedTime = minutes + ':' + seconds;
+                chart3.data.labels.push(formattedTime);
+
+                // 라벨 개수가 데이터 개수보다 많으면, 오래된 라벨 삭제
+                if (chart3.data.labels.length > window.receivedOutFlowArray.length) {
+                    chart3.data.labels.shift(); // 가장 오래된 라벨 삭제
+                }
+
+                chart3.update();
+            } else {
+                console.log("유출량 데이터를 받아오지 못했습니다.");
+            }
+        }
+
+        setInterval(function () {            
+            updateRealtimeOutflowChart();
         }, 5000);
 
         // 그래프 4 (일일 유입량)
@@ -357,7 +443,7 @@
             // 차트 업데이트
             chart4.update();
         }, 24 * 60 * 60 * 1000); // 24시간(1일)마다 라벨 추가 및 차트 업데이트
-    });
+    
     
     var graphData = [];
     var todayOutFlowValue = 0;
@@ -476,8 +562,45 @@
         // InFlow 그래프 업데이트
         chart4.update();
     }
-    
-    	
+ // OutFlow 데이터 갱신
+    function updateOutFlowData(todayMinus5OutFlowValue, todayMinus4OutFlowValue, todayMinus3OutFlowValue, todayMinus2OutFlowValue, todayMinus1OutFlowValue, todayOutFlowValue) {
+        var newOutFlowData = [todayMinus5OutFlowValue, todayMinus4OutFlowValue, todayMinus3OutFlowValue, todayMinus2OutFlowValue, todayMinus1OutFlowValue, todayOutFlowValue];
+        var newOutFlowLabels = [];
+        var today = new Date();
+        for (var i = 5; i >= 0; i--) {
+            var currentDate = new Date(today);
+            currentDate.setDate(today.getDate() - i);
+            newOutFlowLabels.push(currentDate.toISOString().split('T')[0]);
+        }
+
+        // OutFlow 그래프에 데이터 및 라벨 할당
+        chart2.data.labels = newOutFlowLabels;
+        chart2.data.datasets[0].data = newOutFlowData;
+
+        // OutFlow 그래프 업데이트
+        chart2.update();
+    }
+
+    // InFlow 데이터 갱신
+    function updateInFlowData(todayMinus5InFlowValue, todayMinus4InFlowValue, todayMinus3InFlowValue, todayMinus2InFlowValue, todayMinus1InFlowValue, todayInFlowValue) {
+        var newInFlowData = [todayMinus5InFlowValue, todayMinus4InFlowValue, todayMinus3InFlowValue, todayMinus2InFlowValue, todayMinus1InFlowValue, todayInFlowValue];
+        var newInFlowLabels = [];
+        var today = new Date();
+        for (var i = 5; i >= 0; i--) {
+            var currentDate = new Date(today);
+            currentDate.setDate(today.getDate() - i);
+            newInFlowLabels.push(currentDate.toISOString().split('T')[0]);
+        }
+
+        // InFlow 그래프에 데이터 및 라벨 할당
+        chart4.data.labels = newInFlowLabels;
+        chart4.data.datasets[0].data = newInFlowData;
+
+        // InFlow 그래프 업데이트
+        chart4.update();
+    }
+
+ 
 	</script>
 </body>
 </html>

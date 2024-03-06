@@ -68,6 +68,12 @@ window.addEventListener('DOMContentLoaded', event => {
 	checkSensorData(); // 페이지 로드와 함께 checkSensorData 함수를 한 번 실행
 	
     // 일정 시간마다 checkSensorData 함수 호출
-    setInterval(checkSensorData, 5000); // 5초마다 호출
-
+   // setInterval(checkSensorData, 5000); // 5초마다 호출
+   setInterval(function () {
+            // 새로운 데이터 가져와서 업데이트
+            console.log("스크립트");            
+			checkSensorData();
+            
+        }, 5000);
+	
 });
