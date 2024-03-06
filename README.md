@@ -1,9 +1,9 @@
 # 리드미 프레임만 만들어놓으려고 복붙해놧음.
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/1f54dc73-e7de-4e95-9e03-fd4ff5f3f9a5)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/aab54409-267d-4f5e-adfe-cb0f5da11ba7)
 
 
 ## 👀 서비스 소개
-* 서비스명:  IoT기반 자전거 도난방지 시스템
+* 서비스명:  IoT기반 오탁수 저감장치 원격제어
 * 서비스설명: 웹으로 로그인하여 잠금/잠금해제 하여 자전거보안을 강화할 수 있고, 라이딩기록이 날짜별로 기록되어 해당날짜의 기록을 확인가능하고 게시판, 마이페이지, 유의사항 등 여러 부가기능을 추가하였다
 <br>
 
