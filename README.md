@@ -74,21 +74,24 @@
 <br>
 
 ## ⚙ 시스템 아키텍처
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/f01b727a-fd4b-413e-b878-39c5aa5f87de)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/f4b1f012-261d-4d5f-b30e-c4dbf5c3ca7a)
 
 <br>
 
 ## 📌 회로도
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/cd60ee16-f249-42bb-846b-eb5e7abfc738)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/b880dd25-6752-41d8-86e0-324f1d9c295d)
+
 <br>
 
 ## 📌 SW유스케이스
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/3b2d2412-49bb-41ce-80d9-4c2bbabce6ad)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/5d739e07-0c0a-4ff0-ba0f-f3b5d67088ae)
+
 
 <br>
 
 ## 📌 서비스 흐름도
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/1578f63e-4eee-4959-903b-24bb0eff899d)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/f0a7887a-b6ed-4267-b405-c09b8ac10496)
+
 <br>
 
 ## 📌 ER다이어그램
@@ -97,9 +100,10 @@
 
 ## 🖥 화면 구성
 ### 메인화면
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/25c3f866-21e8-41db-8017-640027c3be2d)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/e32faaf6-173b-496f-9aca-89832627597f)
+
 <br>
-<ul><li>BSS시스템 첫 화면구성</li></ul>
+<ul><li>IoT오탁수 첫 화면구성</li></ul>
 <br>
 
 ### 로그인/회원가입/마이페이지(회원정보수정)
