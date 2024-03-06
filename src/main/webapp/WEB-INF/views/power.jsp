@@ -56,19 +56,22 @@
                 <div class="col-lg-50">
                     <div class="card mb-2">
                         <div class="card-header">
-                            <i class="fas fa-wrench me-1"></i> 배관 밸브 제어
+                            <i class="fas fa-wrench me-1"></i> 유입 배관 밸브 제어
                         </div>
                         <div class="card-body">
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" id="valveSwitch" onchange="toggleValve()"> 
                                 <label class="form-check-label" for="valveSwitch">
-                                    배관 밸브 열기/닫기
+                                    유입 배관 밸브 열기/닫기
                                 </label>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
+            ※ 유입/유출 배관 밸브는 서로 반대로 작동합니다. <br>
+            ex) 유입 - 열림 : 유출 닫힘 / 유입 - 닫힘 : 유출 열림 
         </div>
     </div>
 </main>
