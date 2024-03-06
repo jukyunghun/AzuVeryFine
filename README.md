@@ -59,7 +59,7 @@
     <tr>
         <td>데이터베이스</td>
         <td>
-            <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
+            <img src="https://img.shields.io/badge/mariaDB-003545?style=for-the-badge&logo=mariaDB&logoColor=white"/>
         </td>
     </tr>
     <tr>
