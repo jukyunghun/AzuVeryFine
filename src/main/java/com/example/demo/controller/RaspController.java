@@ -51,9 +51,9 @@ public class RaspController {
 	
 	@GetMapping("/getGraphData")
 	public SensorData getGraphData() {
-	    SensorData emptySensorData = sensorData; // 현재 센서데이터 인스턴스를 새로운 변수에 할당
-	    sensorData = null; // 현재 센서데이터 인스턴스를 비움
-	    return emptySensorData; // 비워진 센서데이터를 반환
+//	    SensorData emptySensorData = sensorData; // 현재 센서데이터 인스턴스를 새로운 변수에 할당
+//	    sensorData = null; // 현재 센서데이터 인스턴스를 비움
+	    return sensorData; // 비워진 센서데이터를 반환
 	}
 	
 }
