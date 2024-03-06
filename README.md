@@ -135,33 +135,10 @@
 <br>
 
 ### 메뉴
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/d1d141ec-62f7-4090-89cc-9eeb01d977a5)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/ecff9b3c-10bd-4037-94fb-c62926d81cb2)
+
 <br>
 <ul><li>다른 페이지에서 사용하고자 하는 페이지로 이동을 용이하게 메뉴를 각 페이지에 할당함</li></ul>
-<br>
-
-### 라이딩기록
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/3ae8055f-8209-41e5-a74b-2f691c95ab21)
-<br>
-<ul><li>주행 후 날짜 입력 시에 해당 날짜에 주행한 거리, 속도, 시간과 지도에 주행한 경로를 표시함</li></ul>
-<br>
-
-### 자전거위치찾기
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/3fe91cec-6b3b-4558-a2dd-fbd3a4e461bf)
-<br>
-<ul><li>현재 자전거의 위치를 지도에 표시하여 도난 시 나의 자전거의 위치를 파악하게 함</li></ul>
-<br>
-
-### 유의사항
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/cbd87ac5-f47c-490b-8c5f-1970b662ed11)
-<br>
-<ul><li>사용 시 유의 사항</li></ul>
-<br>
-
-### 게시판
-![게시판1](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/144170214/a565c0af-c2ef-4ea6-b202-cd988ab00e58)
-<br>
-<ul><li>유저간의 소통할 수 있는 공간을 만들었고 제목 클릭 시 상세 게시물을 열람할 수 있고 자신이 작성한 게시물은 삭제할 수 있게 구현함</li></ul>
 <br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
