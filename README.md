@@ -106,22 +106,32 @@
 <ul><li>IoT오탁수 첫 화면구성</li></ul>
 <br>
 
-### 로그인/회원가입/마이페이지(회원정보수정)
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/40a60943-5bb2-436e-a4e0-3ccb860e2b73)
+### 회원가입/로그인
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/716e106c-d6d5-4cac-9968-6ebc1689c06d)
+
 <br>
-<ul><li>회원 가입페이지에서 회원 가입할 수 있고 로그인 후 기능들을 사용할 수 있고 마이페이지에서 회원 정보수정 기능을 이용할 수 있음</li></ul>
+<ul><li>회원 가입페이지에서 회원 가입할 수 있고 로그인 후 기능들을 사용할 수 있음</li></ul>
 <br>
 
-### 잠금/잠금해제
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/f5a4771e-905f-469b-bbd5-00f1e0a165c3)
+### 마이페이지(회원정보수정)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/656052b9-d34e-4186-bd21-d58aa9f438a0)
+
 <br>
-<ul><li>해당 페이지에서 자전거를 잠금(이동 불가) / 잠금 해체(이동 가능) 상태로 전환 가능</li></ul>
+<ul><li>회원 정보 수정에서 회원 정보수정 기능을 이용할 수 있음</li></ul>
 <br>
 
-### 도난 감지 알람
-![도난알림](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/144170214/925023f0-4cab-4e92-a886-8cc84e5b93b6)
+### 배관 밸브 제어
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/4d653cff-c266-4bae-9312-c3524822342c)
+
 <br>
-<ul><li>잠금상태에서 가속도센서 값이 변경된다면 도난 상태로 간주하여 장치에서 경보음 및 웹상으로 알림 전송</li></ul>
+<ul><li>기기 제어 배관 밸브 제어 페이지에서 배관을 열기(물유입) / 닫기(물유출) 상태로 전환 가능</li></ul>
+<br>
+
+### 약제 투입
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/7e78cc33-e52c-4f86-820d-82353fcf21bd)
+
+<br>
+<ul><li>약제를 어느정도나 투입할건지 입력하면 기존 양에 마이너스되어 값이 저장됨</li></ul>
 <br>
 
 ### 메뉴
