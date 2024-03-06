@@ -95,7 +95,8 @@
 <br>
 
 ## 📌 ER다이어그램
-![E-R](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/assets/149558578/6ce064b5-ea89-4f44-b136-d7f8fdbd3541)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/cf02b102-7f94-4b18-bea0-437496e770a3)
+
 <br>
 
 ## 🖥 화면 구성
