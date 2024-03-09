@@ -203,7 +203,7 @@
   </tr>
   
   <tr>
-    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>  
     <td align="center"><b>DataBase</b></td>  
     <td align="center"><b>DataBase</b></td>  
