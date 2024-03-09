@@ -1,4 +1,4 @@
-# 리드미 프레임만 만들어놓으려고 복붙해놧음.
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/4e00efcb-238a-4c26-bd06-7d64b47a90d2)# 리드미 프레임만 만들어놓으려고 복붙해놧음.
 ![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/aab54409-267d-4f5e-adfe-cb0f5da11ba7)
 
 
@@ -99,7 +99,7 @@
 
 <br>
 
-## 🖥 화면 구성
+## 🖥 웹 화면 구성
 ### 메인화면
 ![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/e32faaf6-173b-496f-9aca-89832627597f)
 
@@ -141,6 +141,42 @@
 <br>
 <ul><li>다른 페이지에서 사용하고자 하는 페이지로 이동을 용이하게 메뉴를 각 페이지에 할당함</li></ul>
 <br>
+
+## 🖥 어플 화면 구성
+
+### 회원가입/로그인
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/3f64d5cc-f696-4f0a-91f8-46ed024b17c9)
+
+<br>
+<ul><li>회원 가입페이지에서 회원 가입할 수 있고 로그인 후 기능들을 사용할 수 있음
+<br>
+
+### 그래프표시
+
+<br>
+<ul><li>로그인 이후 그래프값이 나오게 화면구성
+<br>
+    
+### 밸브제어
+
+<br>
+<ul><li>기기 제어 배관 밸브 제어 페이지에서 배관을 열기(물유입) / 닫기(물유출) 상태로 전환 가능
+<br>
+    
+### 약제 투입
+
+<br>
+<ul><li>약제를 어느정도나 투입할건지 입력하면 기존 양에 마이너스되어 값이 저장됨
+<br>
+    
+### 회원 정보 수정
+
+<br>
+<ul><li>회원 정보 수정에서 회원 정보수정 기능을 이용할 수 있음
+<br>
+
+
+
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
