@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Enumeration;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,12 +46,19 @@ public class ValveController {
 	@GetMapping("/valveGetStatus")
 	@ResponseBody
 	public String getValveStatus(HttpServletRequest request) {
-		System.out.println("메서드 들어옴");
-		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("email");
-		
-		List<String> result = service.getValveStatus2(email);
-		String result2 = result.get(0);
-		return result2;
+	    System.out.println("메서드 들어옴");
+	    HttpSession session = request.getSession();
+	    String email = (String) session.getAttribute("email");
+
+	    // 세션에 이메일이 없으면 요청 헤더에서 가져옴
+	    if (email == null) {
+	        email = request.getHeader("userEmail");
+	    }
+
+	    System.out.println(email);
+	    
+	    List<String> result = service.getValveStatus2(email);
+	    String result2 = result.get(0);
+	    return result2;
 	}
 }

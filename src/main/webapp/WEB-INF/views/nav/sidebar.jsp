@@ -33,6 +33,12 @@
 					<i class="fa fa-user-circle"></i>
 				</div> 회원 정보 수정
 			</a>
+			<div class="sb-sidenav-menu-heading">Camera</div>
+			<a class="nav-link" href="http://172.30.1.63:8081">
+				<div class="sb-nav-link-icon">
+					<i class="fa fa-user-circle"></i>
+				</div> 카메라 확인
+			</a>
 		</div>
 	</div>
 	<div class="sb-sidenav-footer">

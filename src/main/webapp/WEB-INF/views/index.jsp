@@ -201,7 +201,7 @@
                 console.log("new" + window.sensorData.inFlowValue)
                 updateRealtimeInflowChart(); // 인자를 제거하고 함수를 호출
             
-        }, 5000);
+        }, 10000);
         	
 
         // 그래프 2 (일일 오탁수 처리량)
@@ -391,7 +391,7 @@
 
         setInterval(function () {            
             updateRealtimeOutflowChart();
-        }, 5000);
+        }, 10000);
 
         // 그래프 4 (일일 유입량)
         var ctx4 = document.getElementById('dailyInflowChart').getContext('2d');

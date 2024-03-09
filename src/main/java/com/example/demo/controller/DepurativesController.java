@@ -21,6 +21,10 @@ public class DepurativesController {
 		HttpSession session = request.getSession();
 		String email = (String)session.getAttribute("email");
 		
+		if(email == null) {
+			email = request.getHeader("userEmail");
+		}
+		
 		service.saveDepurative(email,amount);
 		
 		return "success"; 

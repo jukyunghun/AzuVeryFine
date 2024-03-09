@@ -31,11 +31,11 @@
                         <div class="col-lg-6">
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    <i class="fas fa-syringe me-1"></i> 약제 투입
+                                    <i class="fas fa-syringe me-1"></i> 약제 투입 (단위 : cc)
                                 </div>
                                 <div class="card-body">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="medicationInput" placeholder="약제 양(ml)">
+                                        <input type="text" class="form-control" id="medicationInput" placeholder="약제 양(cc)">
                                         <button class="btn btn-primary" type="button" onclick="injectMedication()">약제 투입</button>
                                     </div>
                                 </div>

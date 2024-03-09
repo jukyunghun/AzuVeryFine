@@ -74,6 +74,6 @@ window.addEventListener('DOMContentLoaded', event => {
             console.log("스크립트");            
 			checkSensorData();
             
-        }, 5000);
+        }, 10000);
 	
 });

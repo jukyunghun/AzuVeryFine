@@ -28,6 +28,9 @@ public class DailyGraphController {
 		System.out.println("컨트롤러 들어옴");
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
+		if(email == null) {
+			email = request.getHeader("userEmail");
+		}
 		System.out.println(email);
 		return sensorDataService.getSensorDataForLastSixDays(email);
 	}

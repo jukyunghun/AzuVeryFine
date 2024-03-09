@@ -86,41 +86,51 @@ public class JwtTokenProvider {
 	    }
 	}
 
-	public String getAccessTokenFromRequest(HttpServletRequest request) {
-		Cookie[] cookies = request.getCookies();
 
-		String bearerToken = null;
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if ("accessToken".equals(cookie.getName())) {
-					bearerToken = cookie.getValue();
-					break;
-				}
-			}
-		}
+public String getAccessTokenFromRequest(HttpServletRequest request) {
+    // 요청 헤더에서 "Authorization" 헤더 값을 가져와서 Bearer 토큰인지 확인
+    String authorizationHeader = request.getHeader("Authorization");
+    if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+        String accessTokenHeader = authorizationHeader.substring(7); // "Bearer " 이후의 토큰 값만 추출
+        return accessTokenHeader;
+    }
 
-		if (bearerToken != null) {
-			return bearerToken;
-		}
-		return null;
-	}
+    // 요청 쿠키에서 "accessToken" 쿠키 값을 가져옴
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            if ("accessToken".equals(cookie.getName())) {
+                return cookie.getValue();
+            }
+        }
+    }
+
+    return null;
+}
 
 	public String getRefreshTokenFromRequest(HttpServletRequest request) {
-		Cookie[] cookies = request.getCookies();
+	    System.out.println("들어왔다!");
 
-		String bearerToken = null;
-		if (cookies != null) {
-			for (Cookie cookie : cookies) {
-				if ("refreshToken".equals(cookie.getName())) {
-					bearerToken = cookie.getValue();
-					break;
-				}
-			}
-		}
+	    // 요청 헤더에서 "Refresh-Token" 헤더 값을 가져옴
+	    String refreshTokenHeader = request.getHeader("Refresh-Token");
+	    if (refreshTokenHeader != null) {
+	        System.out.println("헤더에서 토큰값 찾음!");
+	        return refreshTokenHeader;
+	    }
 
-		if (bearerToken != null) {
-			return bearerToken;
-		}
-		return null;
+	    // 요청 쿠키에서 "refreshToken" 쿠키 값을 가져옴
+	    Cookie[] cookies = request.getCookies();
+	    if (cookies != null) {
+	        for (Cookie cookie : cookies) {
+	            if ("refreshToken".equals(cookie.getName())) {
+	                String refreshTokenCookie = cookie.getValue();
+	                System.out.println("쿠키에서 토큰값 찾음!");
+	                return refreshTokenCookie;
+	            }
+	        }
+	    }
+
+	    System.out.println("토큰값 못찾음!");
+	    return null;
 	}
 }
