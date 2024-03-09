@@ -152,27 +152,31 @@
 <br>
 
 ### 그래프표시
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/ea7d39e1-0369-489a-b0e4-3888a510e906)
 
 <br>
-<ul><li>로그인 이후 그래프값이 나오게 화면구성
+<ul><li>로그인 이후 그래프값이 나오게 화면구성</li></ul>
 <br>
     
 ### 밸브제어
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/b4e8bad1-fb5d-4745-a084-80de8ffdeec6)
 
 <br>
-<ul><li>기기 제어 배관 밸브 제어 페이지에서 배관을 열기(물유입) / 닫기(물유출) 상태로 전환 가능
+<ul><li>기기 제어 배관 밸브 제어 페이지에서 배관을 열기(물유입) / 닫기(물유출) 상태로 전환 가능</li></ul>
 <br>
     
 ### 약제 투입
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/0e8b245f-6556-4e8a-b211-d7aee270af14)
 
 <br>
-<ul><li>약제를 어느정도나 투입할건지 입력하면 기존 양에 마이너스되어 값이 저장됨
+<ul><li>약제를 어느정도나 투입할건지 입력하면 기존 양에 마이너스되어 값이 저장됨</li></ul>
 <br>
     
 ### 회원 정보 수정
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/173ab331-2d08-4569-884f-3b8df15dc73f)
 
 <br>
-<ul><li>회원 정보 수정에서 회원 정보수정 기능을 이용할 수 있음
+<ul><li>회원 정보 수정에서 회원 정보수정 기능을 이용할 수 있음</li></ul>
 <br>
 
 
