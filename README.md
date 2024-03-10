@@ -211,10 +211,10 @@
   </tr>
   
   <tr>
-    <td align="center"><a href="https://github.com/HUNMINRYU" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/dlrjsdud" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/YangYunHyeong/YunHyeong" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/WooRiGyeoRe" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/YangYnuHyeong" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/dlwlsdn808" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/dlwlsdn808" target='_blank'>github</a></td>
   </tr>
   </table>
