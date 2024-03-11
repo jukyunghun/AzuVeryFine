@@ -39,10 +39,10 @@
     <tr>
         <td>개발도구</td>
         <td>
-            <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"/> 
-            <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"/>
             <img src="https://img.shields.io/badge/raspberrypi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white">
             <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
+            <img src="https://img.shields.io/badge/kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white"/>
         </td>
     </tr>
     <tr>
@@ -69,7 +69,8 @@
 <br>
 
 ## ⚙ 시스템 아키텍처
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/f4b1f012-261d-4d5f-b30e-c4dbf5c3ca7a)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/ce4aeafa-679f-4774-a5c4-bb42bbb85f48)
+
 
 <br>
 
@@ -230,6 +231,8 @@
 
 ## 🤾‍♂️ 트러블슈팅
 ### ● 문제1
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/c69ca3a9-bd4c-48bc-bdaa-78ec59522fe8)
+
 <ol>
     <li>Arduino NANO -> ESP32 d1 r32 => 블루투스 통신의 거리는 환경에 따라 다르지만 약 10m~100m의 거리제한을 가지고있음. 현재 시중에 나와있는 자전거 도난 방지의 제품들은 대부분이 블루투스 통신을 사용중이고 이에 따라, 물리적으로 도난을 막을 수 없다면 2차적인 대응으로 내 자전거의 위치를 확인하고 직접 찾으러 가는 방법이 있으면 좋겠다는 생각에 와이파이 통신으로 변경</li>
     <li>ESP32 d1 r32 -> Arduino UNO+wifi 모듈 => ESP32 d1 r32의 접근성 부족으로 인해 프로젝트 기간준수를 위한 접근성이 좋은 UNO보드+wifi모듈로 변경</li>
