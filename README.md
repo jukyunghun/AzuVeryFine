@@ -1,4 +1,3 @@
-# 리드미 프레임만 만들어놓으려고 복붙해놧음.
 ![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/aab54409-267d-4f5e-adfe-cb0f5da11ba7)
 
 
