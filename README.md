@@ -1,4 +1,5 @@
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/aab54409-267d-4f5e-adfe-cb0f5da11ba7)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/e76e03a0-7266-4c29-97ff-2b443a98a8d7)
+
 
 
 ## 👀 서비스 소개
