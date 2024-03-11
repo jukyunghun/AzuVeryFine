@@ -37,24 +37,18 @@
         </td>
     </tr>
     <tr>
-        <td>라이브러리</td>
-        <td>
-            <img src="https://img.shields.io/badge/Kakao Map Api-007CE2?style=for-the-badge&logo=KaKao Map Api&logoColor=white">
-        </td>
-    </tr>
-    <tr>
         <td>개발도구</td>
         <td>
             <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"/> 
             <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white"/>
-            <img src="https://img.shields.io/badge/raspberrypi-#A22846?style=for-the-badge&logo=raspberrypi&logoColor=white">
+            <img src="https://img.shields.io/badge/raspberrypi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white">
             <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>서버환경</td>
         <td>
-            <img src="https://img.shields.io/badge/Apache Tomcat-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
+            <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
         </td>
     </tr>
     <tr>
@@ -80,7 +74,8 @@
 <br>
 
 ## 📌 회로도
-![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/b880dd25-6752-41d8-86e0-324f1d9c295d)
+![image](https://github.com/2023-SMHRD-KDT-IOT-4/AzuVeryFine/assets/152847507/76fbaf97-d69e-4ceb-b439-b56687cbaaec)
+
 
 <br>
 
